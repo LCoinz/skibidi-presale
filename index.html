@@ -3,168 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>$SKIBIDI Presale</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+  <title>$SKIBIDI - The Loudest Meme on Solana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
       font-family: 'Rubik', sans-serif;
-      background: pink;
-      color: #000;
+      background: #ffefff;
+      color: #111;
+    }
+    header {
+      background: #ff0080;
+      color: white;
+      padding: 60px 20px;
       text-align: center;
-      padding: 20px;
-      position: relative;
     }
     header h1 {
-      font-size: 3rem;
-      color: #ff0080;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
     }
-    .wallet-box, .presale-tracker, .countdown {
-      margin: 20px auto;
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
-    .gif-border {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
+    .container {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
     }
-    .gif-border img {
-      position: absolute;
-      width: 100px;
-    }
-    .gif-top { top: 0; left: 50%; transform: translateX(-50%); }
-    .gif-bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
-    .gif-left { left: 0; top: 50%; transform: translateY(-50%); }
-    .gif-right { right: 0; top: 50%; transform: translateY(-50%); }
-    #connect-btn, #claim-btn {
-      padding: 12px 24px;
-      background: #ff0080;
-      border: none;
-      color: #fff;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      margin: 10px;
-    }
-    #claim-btn:disabled {
-      background: #ccc;
-      cursor: not-allowed;
+    .countdown, .tracker, .wallet-section {
+      margin: 30px 0;
     }
     .progress-bar {
-      width: 80%;
+      width: 100%;
       height: 25px;
-      background: #eee;
-      margin: 20px auto;
-      border-radius: 12px;
+      background: #ddd;
+      border-radius: 8px;
       overflow: hidden;
     }
     .progress-fill {
       height: 100%;
-      background: linear-gradient(to right, #ff0080, #ff66cc);
+      background: #ff0080;
       width: 0%;
       transition: width 1s linear;
     }
-    .purpose {
-      margin: 40px auto;
-      max-width: 800px;
-      font-size: 1.1rem;
+    button {
+      background: #ff0080;
+      border: none;
+      padding: 12px 24px;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
     }
   </style>
-  <script type="module">
-    import { Connection, PublicKey, clusterApiUrl } from "https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js";
-    import { PhantomWalletAdapter } from "https://unpkg.com/@solana/wallet-adapter-wallets@0.20.0/lib/esm/phantom.js";
-
-    const connectButton = document.getElementById("connect-btn");
-    const claimButton = document.getElementById("claim-btn");
-    const statusBox = document.getElementById("wallet-status");
-    const addressDisplay = document.getElementById("wallet-address");
-    const progressBar = document.querySelector(".progress-fill");
-    const CLAIM_DATA = "https://yourdomain.com/snapshot.json"; // Replace with your hosted JSON file
-
-    let wallet = new PhantomWalletAdapter();
-
-    connectButton.addEventListener("click", async () => {
-      try {
-        await wallet.connect();
-        addressDisplay.textContent = wallet.publicKey.toBase58();
-        statusBox.textContent = "Wallet connected ✅";
-        checkEligibility(wallet.publicKey.toBase58());
-      } catch (err) {
-        statusBox.textContent = "Connection failed ❌";
-      }
-    });
-
-    async function checkEligibility(address) {
-      try {
-        const res = await fetch(CLAIM_DATA);
-        const snapshot = await res.json();
-        if (snapshot[address]) {
-          claimButton.disabled = false;
-          claimButton.textContent = `Claim ${snapshot[address]} SKIBIDI`;
-        } else {
-          claimButton.disabled = true;
-          claimButton.textContent = "Not eligible";
-        }
-      } catch (err) {
-        console.error("Error loading snapshot", err);
-      }
-    }
-
-    claimButton.addEventListener("click", () => {
-      alert("Your claim request has been submitted. Airdrops will be processed after presale ends. 🎁");
-    });
-
-    // Simulate live presale fill
-    const endTime = new Date("2025-07-18T18:00:00Z").getTime();
-    const startTime = Date.now();
-    const duration = endTime - startTime;
-
-    function updateProgress() {
-      const now = Date.now();
-      const elapsed = now - startTime;
-      const percentage = Math.min((elapsed / duration) * 100, 100);
-      progressBar.style.width = percentage + "%";
-    }
-
-    setInterval(updateProgress, 1000);
-  </script>
 </head>
 <body>
-  <div class="gif-border">
-    <img src="/mnt/data/329b8b9b-558a-4758-b290-36b1fb3f72e2.png" class="gif-top" />
-    <img src="/mnt/data/255c1331-5fbd-453a-bc25-f60c1949e425.png" class="gif-bottom" />
-    <img src="/mnt/data/c44702a0-f363-4863-9798-61e7c788bce2.png" class="gif-left" />
-    <img src="/mnt/data/329b8b9b-558a-4758-b290-36b1fb3f72e2.png" class="gif-right" />
-  </div>
-
   <header>
     <h1>$SKIBIDI Presale Live!</h1>
+    <p>Skibidi is here to flush the competition. The loudest meme coin on Solana has arrived. Don’t miss your chance to ape in early!</p>
   </header>
+  
+  <div class="container">
+    <div class="countdown">
+      <h2>Presale Ends In:</h2>
+      <div id="timer" style="font-size: 2rem; margin-top: 10px;"></div>
+    </div>
 
-  <div>
-    <button id="connect-btn">Connect Wallet</button>
-    <div id="wallet-status"></div>
-    <div id="wallet-address"></div>
-    <button id="claim-btn" disabled>Claim</button>
+    <div class="tracker">
+      <h2>Presale Progress</h2>
+      <p><span id="sol-raised">0</span> / 50 SOL raised</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="wallet-section">
+      <button id="connect-btn">Connect Wallet</button>
+      <p id="wallet-status"></p>
+      <p id="wallet-address"></p>
+      <button id="claim-btn" disabled>Claim Airdrop</button>
+    </div>
   </div>
 
-  <div class="progress-bar">
-    <div class="progress-fill"></div>
-  </div>
-
-  <div class="purpose">
-    <h2>Why $SKIBIDI?</h2>
-    <p>
-      $SKIBIDI is not just another meme coin—it's a cultural revolution. Fueled by the chaotic energy of the internet and powered by the Solana blockchain, $SKIBIDI brings the community together with humor, speed, and purpose. Whether you're here for laughs or moon missions, you're in the right place.
-    </p>
-    <p>
-      Join the movement. Hold the token. Claim your spot in meme history.
-    </p>
-  </div>
-
-  <footer style="margin-top: 50px; font-size: 0.8rem;">
-    © 2025 SKIBIDI. All rights reserved. Not financial advice.
+  <footer>
+    © 2025 $SKIBIDI. Not financial advice. DYOR.
   </footer>
+
+  <script>
+    // Countdown Logic
+    const endTime = new Date("2025-07-18T18:00:00Z").getTime();
+    const timerEl = document.getElementById("timer");
+    const fillEl = document.getElementById("progress-fill");
+    const solEl = document.getElementById("sol-raised");
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = endTime - now;
+
+      if (diff <= 0) {
+        timerEl.innerText = "Presale Ended";
+        fillEl.style.width = "100%";
+        solEl.innerText = "50";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      timerEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
+
+      const total = 50;
+      const timePassed = endTime - diff;
+      const progress = ((now - (endTime - 7 * 24 * 60 * 60 * 1000)) / (7 * 24 * 60 * 60 * 1000)) * 100; // Linear 7-day fill
+      const solRaised = Math.min((progress / 100) * total, total).toFixed(2);
+      solEl.innerText = solRaised;
+      fillEl.style.width = `${Math.min(progress, 100)}%`;
+
+      requestAnimationFrame(updateCountdown);
+    }
+    updateCountdown();
+
+    // Wallet + Claim System (simplified mock)
+    const connectBtn = document.getElementById("connect-btn");
+    const claimBtn = document.getElementById("claim-btn");
+    const statusEl = document.getElementById("wallet-status");
+    const addressEl = document.getElementById("wallet-address");
+
+    connectBtn.addEventListener("click", () => {
+      const dummyAddress = "YourWalletAddress123...";
+      addressEl.innerText = dummyAddress;
+      statusEl.innerText = "Wallet connected ✅";
+
+      // Replace with real snapshot check
+      claimBtn.disabled = false;
+      claimBtn.innerText = "Claim 1,234,567 SKIBIDI";
+    });
+
+    claimBtn.addEventListener("click", () => {
+      alert("Claim request submitted. Airdrop after presale ends. 🎉");
+    });
+  </script>
 </body>
 </html>
-
