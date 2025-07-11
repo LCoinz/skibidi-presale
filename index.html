@@ -1,163 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>$SKIBIDI Presale</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Rubik', sans-serif;
-      background: pink;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-    }
-    .corner-gif {
-      position: fixed;
-      width: 100px;
-      height: auto;
-      z-index: 1;
-    }
-    .top-left { top: 0; left: 0; }
-    .top-right { top: 0; right: 0; }
-    .bottom-left { bottom: 0; left: 0; }
-    .bottom-right { bottom: 0; right: 0; }
-    header {
-      padding: 60px 20px;
-      z-index: 2;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3rem;
-      color: #00ffae;
-      text-shadow: 1px 1px 5px #000;
-    }
-    .content {
-      max-width: 700px;
-      margin: 40px auto;
-      background: #1f1f1f;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 255, 174, 0.2);
-      z-index: 2;
-      position: relative;
-    }
-    .content h2 {
-      color: #00ffae;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-    .content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-    .wallet-box {
-      background: #2c2c2c;
-      padding: 20px;
-      border-radius: 8px;
-      font-size: 1rem;
-      word-break: break-word;
-      margin: 20px auto;
-      border: 1px solid #00ffae;
-    }
-    .presale-tracker {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #00ffae;
-    }
-    .countdown {
-      font-size: 1.5rem;
-      margin-top: 20px;
-      color: #ffcc00;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #00ffae;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0, 255, 174, 0.3);
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #00c996;
-    }
+    body { background: #111; color: #fff; font-family: 'Rubik', sans-serif; margin:0; padding:0; }
+    header { background: #1a1a1a; padding: 40px; text-align:center; }
+    header h1 { font-size:2.8rem; color:#00ffae; margin:0; }
+    section { max-width:800px; margin:auto; padding:40px 20px; }
+    .info { background:#222; padding:20px; border-radius:8px; margin-bottom:20px; line-height:1.6; }
+    .info h2 { color:#00ffae; margin-bottom:10px; }
+    .btn { display:inline-block; margin:10px; padding:14px 28px; background:#00ffae; color:#000; font-weight:bold; border-radius:6px; text-decoration:none;}
+    .tracker, .countdown { margin-top:20px; font-size:1.2rem; color:#ffcc00; }
+    @media (max-width:600px){ header h1{font-size:2rem;} .btn{padding:12px 20px;} }
   </style>
 </head>
 <body>
-  <img class="corner-gif top-left" src="/mnt/data/329b8b9b-558a-4758-b290-36b1fb3f72e2.png" alt="GIF 1">
-  <img class="corner-gif top-right" src="/mnt/data/255c1331-5fbd-453a-bc25-f60c1949e425.png" alt="GIF 2">
-  <img class="corner-gif bottom-left" src="/mnt/data/c44702a0-f363-4863-9798-61e7c788bce2.png" alt="GIF 3">
-  <img class="corner-gif bottom-right" src="/mnt/data/255c1331-5fbd-453a-bc25-f60c1949e425.png" alt="GIF 2 duplicate">
 
-  <header>
-    <h1>$SKIBIDI Presale Live!</h1>
-  </header>
-  <div class="content">
-    <h2>🚀 Join the Craziest Meme Coin of 2025!</h2>
-    <p>
-      $SKIBIDI is the loudest, wildest meme coin on Solana. Zero utility, full chaos, and 100% community-driven.
-    </p>
-    <p>
-      Early degens get rewarded. This is your chance to join before the masses!
-    </p>
-    <h3>💰 1 SOL = 19,996,000 SKIBIDI</h3>
-    <h3>🎯 Raise Cap: 50 SOL</h3>
-    <p>Send SOL to the presale wallet below and secure your $SKIBIDI before it's too late:</p>
-    <div class="wallet-box">
-      GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2Kma
-    </div>
-    <div class="presale-tracker">
-      🚨 Total Raised: <span id="raised">0</span> SOL / 50 SOL
-    </div>
-    <div class="countdown">
-      ⏳ Presale ends in: <span id="countdown-timer"></span>
-    </div>
-    <a class="btn" href="https://t.me/+FH36bGPPNelhOGVk" target="_blank">Join Telegram</a>
+<header>
+  <h1>$SKIBIDI Presale – Flushing LIVE!</h1>
+</header>
+
+<section>
+  <div class="info">
+    <h2>🚀 Why $SKIBIDI?</h2>
+    <p>Your entry into Solana's loudest meme coin. No gimmicks — just pure, unfiltered chaos and community-driven mayhem.</p>
+    <p>Join now before it blows up!</p>
   </div>
-  <footer>
-    © 2025 SKIBIDI Token. This is not financial advice. Solana forever.
-  </footer>
-  <script>
-    const endDate = new Date("2025-07-17T20:00:00Z").getTime();
-    const timer = document.getElementById("countdown-timer");
-    const raised = document.getElementById("raised");
 
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = endDate - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      timer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
+  <div class="info">
+    <h2>📊 Presale Details</h2>
+    <p><strong>1 SOL = 19,996,000 SKIBIDI</strong></p>
+    <p><strong>Raise Cap:</strong> 50 SOL</p>
+    <p>Send SOL to:</p>
+    <p><code>GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2Kma</code></p>
+  </div>
 
-    // Slowly increase SOL to reach 50 by the end of countdown
-    let start = Date.now();
-    const duration = endDate - start;
-    function updateSolProgress() {
-      const now = Date.now();
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const solRaised = 50 * progress;
-      raised.textContent = solRaised.toFixed(2);
-    }
-    setInterval(updateSolProgress, 8000);
-  </script>
+  <a href="https://x.com/Skibidi_Tokens" class="btn" target="_blank">Follow on X</a>
+  <a href="https://t.me/+FH36bGPPNelhOGVk" class="btn" target="_blank">Join Telegram</a>
+
+  <div class="tracker">🚨 Raised: <span id="raised">0.00</span> SOL / 50 SOL</div>
+  <div class="countdown">⏳ Ends in: <span id="cd">--d --h --m --s</span></div>
+</section>
+
+<script>
+  const end = new Date("2025-07-17T20:00:00Z").getTime();
+  const start = Date.now();
+  const raisedEl = document.getElementById("raised");
+  const cdEl = document.getElementById("cd");
+
+  // Countdown updater
+  setInterval(() => {
+    const now = Date.now(), d = end - now;
+    if (d<=0) return cdEl.textContent="Ended!";
+    const days=Math.floor(d/86400000), hrs=Math.floor((d%86400000)/3600000),
+          mins=Math.floor((d%3600000)/60000), secs=Math.floor((d%60000)/1000);
+    cdEl.textContent=`${days}d ${hrs}h ${mins}m ${secs}s`;
+  },1000);
+
+  // Smooth raise tracker
+  setInterval(() => {
+    const now = Date.now();
+    const pct = Math.min((now - start)/(end - start), 1);
+    const sol = (50 * pct).toFixed(2);
+    raisedEl.textContent = sol;
+  }, 5000);
+</script>
+
+</body>
+</html>
