@@ -1,73 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$SKIBIDI Presale</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
   <style>
-    body { background: #111; color: #fff; font-family: 'Rubik', sans-serif; margin:0; padding:0; }
-    header { background: #1a1a1a; padding: 40px; text-align:center; }
-    header h1 { font-size:2.8rem; color:#00ffae; margin:0; }
-    section { max-width:800px; margin:auto; padding:40px 20px; }
-    .info { background:#222; padding:20px; border-radius:8px; margin-bottom:20px; line-height:1.6; }
-    .info h2 { color:#00ffae; margin-bottom:10px; }
-    .btn { display:inline-block; margin:10px; padding:14px 28px; background:#00ffae; color:#000; font-weight:bold; border-radius:6px; text-decoration:none;}
-    .tracker, .countdown { margin-top:20px; font-size:1.2rem; color:#ffcc00; }
-    @media (max-width:600px){ header h1{font-size:2rem;} .btn{padding:12px 20px;} }
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: pink;
+      color: #000;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #ff0080;
+    }
+    .wallet-box, .presale-tracker, .countdown {
+      margin: 20px auto;
+    }
+    .gif-border {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .gif-border img {
+      position: absolute;
+      width: 100px;
+    }
+    .gif-top { top: 0; left: 50%; transform: translateX(-50%); }
+    .gif-bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+    .gif-left { left: 0; top: 50%; transform: translateY(-50%); }
+    .gif-right { right: 0; top: 50%; transform: translateY(-50%); }
+    #connect-btn, #claim-btn {
+      padding: 12px 24px;
+      background: #ff0080;
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px;
+    }
+    #claim-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .progress-bar {
+      width: 80%;
+      height: 25px;
+      background: #eee;
+      margin: 20px auto;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, #ff0080, #ff66cc);
+      width: 0%;
+      transition: width 1s linear;
+    }
+    .purpose {
+      margin: 40px auto;
+      max-width: 800px;
+      font-size: 1.1rem;
+    }
   </style>
+  <script type="module">
+    import { Connection, PublicKey, clusterApiUrl } from "https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js";
+    import { PhantomWalletAdapter } from "https://unpkg.com/@solana/wallet-adapter-wallets@0.20.0/lib/esm/phantom.js";
+
+    const connectButton = document.getElementById("connect-btn");
+    const claimButton = document.getElementById("claim-btn");
+    const statusBox = document.getElementById("wallet-status");
+    const addressDisplay = document.getElementById("wallet-address");
+    const progressBar = document.querySelector(".progress-fill");
+    const CLAIM_DATA = "https://yourdomain.com/snapshot.json"; // Replace with your hosted JSON file
+
+    let wallet = new PhantomWalletAdapter();
+
+    connectButton.addEventListener("click", async () => {
+      try {
+        await wallet.connect();
+        addressDisplay.textContent = wallet.publicKey.toBase58();
+        statusBox.textContent = "Wallet connected ✅";
+        checkEligibility(wallet.publicKey.toBase58());
+      } catch (err) {
+        statusBox.textContent = "Connection failed ❌";
+      }
+    });
+
+    async function checkEligibility(address) {
+      try {
+        const res = await fetch(CLAIM_DATA);
+        const snapshot = await res.json();
+        if (snapshot[address]) {
+          claimButton.disabled = false;
+          claimButton.textContent = `Claim ${snapshot[address]} SKIBIDI`;
+        } else {
+          claimButton.disabled = true;
+          claimButton.textContent = "Not eligible";
+        }
+      } catch (err) {
+        console.error("Error loading snapshot", err);
+      }
+    }
+
+    claimButton.addEventListener("click", () => {
+      alert("Your claim request has been submitted. Airdrops will be processed after presale ends. 🎁");
+    });
+
+    // Simulate live presale fill
+    const endTime = new Date("2025-07-18T18:00:00Z").getTime();
+    const startTime = Date.now();
+    const duration = endTime - startTime;
+
+    function updateProgress() {
+      const now = Date.now();
+      const elapsed = now - startTime;
+      const percentage = Math.min((elapsed / duration) * 100, 100);
+      progressBar.style.width = percentage + "%";
+    }
+
+    setInterval(updateProgress, 1000);
+  </script>
 </head>
 <body>
-
-<header>
-  <h1>$SKIBIDI Presale – Flushing LIVE!</h1>
-</header>
-
-<section>
-  <div class="info">
-    <h2>🚀 Why $SKIBIDI?</h2>
-    <p>Your entry into Solana's loudest meme coin. No gimmicks — just pure, unfiltered chaos and community-driven mayhem.</p>
-    <p>Join now before it blows up!</p>
+  <div class="gif-border">
+    <img src="/mnt/data/329b8b9b-558a-4758-b290-36b1fb3f72e2.png" class="gif-top" />
+    <img src="/mnt/data/255c1331-5fbd-453a-bc25-f60c1949e425.png" class="gif-bottom" />
+    <img src="/mnt/data/c44702a0-f363-4863-9798-61e7c788bce2.png" class="gif-left" />
+    <img src="/mnt/data/329b8b9b-558a-4758-b290-36b1fb3f72e2.png" class="gif-right" />
   </div>
 
-  <div class="info">
-    <h2>📊 Presale Details</h2>
-    <p><strong>1 SOL = 19,996,000 SKIBIDI</strong></p>
-    <p><strong>Raise Cap:</strong> 50 SOL</p>
-    <p>Send SOL to:</p>
-    <p><code>GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2Kma</code></p>
+  <header>
+    <h1>$SKIBIDI Presale Live!</h1>
+  </header>
+
+  <div>
+    <button id="connect-btn">Connect Wallet</button>
+    <div id="wallet-status"></div>
+    <div id="wallet-address"></div>
+    <button id="claim-btn" disabled>Claim</button>
   </div>
 
-  <a href="https://x.com/Skibidi_Tokens" class="btn" target="_blank">Follow on X</a>
-  <a href="https://t.me/+FH36bGPPNelhOGVk" class="btn" target="_blank">Join Telegram</a>
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
 
-  <div class="tracker">🚨 Raised: <span id="raised">0.00</span> SOL / 50 SOL</div>
-  <div class="countdown">⏳ Ends in: <span id="cd">--d --h --m --s</span></div>
-</section>
+  <div class="purpose">
+    <h2>Why $SKIBIDI?</h2>
+    <p>
+      $SKIBIDI is not just another meme coin—it's a cultural revolution. Fueled by the chaotic energy of the internet and powered by the Solana blockchain, $SKIBIDI brings the community together with humor, speed, and purpose. Whether you're here for laughs or moon missions, you're in the right place.
+    </p>
+    <p>
+      Join the movement. Hold the token. Claim your spot in meme history.
+    </p>
+  </div>
 
-<script>
-  const end = new Date("2025-07-17T20:00:00Z").getTime();
-  const start = Date.now();
-  const raisedEl = document.getElementById("raised");
-  const cdEl = document.getElementById("cd");
-
-  // Countdown updater
-  setInterval(() => {
-    const now = Date.now(), d = end - now;
-    if (d<=0) return cdEl.textContent="Ended!";
-    const days=Math.floor(d/86400000), hrs=Math.floor((d%86400000)/3600000),
-          mins=Math.floor((d%3600000)/60000), secs=Math.floor((d%60000)/1000);
-    cdEl.textContent=`${days}d ${hrs}h ${mins}m ${secs}s`;
-  },1000);
-
-  // Smooth raise tracker
-  setInterval(() => {
-    const now = Date.now();
-    const pct = Math.min((now - start)/(end - start), 1);
-    const sol = (50 * pct).toFixed(2);
-    raisedEl.textContent = sol;
-  }, 5000);
-</script>
-
+  <footer style="margin-top: 50px; font-size: 0.8rem;">
+    © 2025 SKIBIDI. All rights reserved. Not financial advice.
+  </footer>
 </body>
 </html>
+
