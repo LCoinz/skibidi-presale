@@ -1,164 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>$SKIBIDI - The Loudest Meme on Solana</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>$SKIBIDI Presale • Solana Meme Revolution</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background: #ffefff;
-      color: #111;
-    }
-    header {
-      background: #ff0080;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .container {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-    .countdown, .tracker, .wallet-section {
-      margin: 30px 0;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 25px;
-      background: #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: #ff0080;
-      width: 0%;
-      transition: width 1s linear;
-    }
-    button {
-      background: #ff0080;
-      border: none;
-      padding: 12px 24px;
-      color: white;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:disabled {
-      background: #aaa;
-      cursor: not-allowed;
-    }
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
+    body { margin:0; font-family:Rubik,sans-serif; background:#121212; color:#eee; }
+    header { background:#ff0080; padding:60px 20px; text-align:center; }
+    header h1 { font-size:3rem; margin-bottom:10px; }
+    header p { max-width:600px; margin:auto; font-size:1.1rem; color:#fff; }
+    nav { display:flex; justify-content:center; gap:20px; margin-top:20px; }
+    nav a { color:#fff; text-decoration:none; font-weight:bold; }
+    section { padding:40px 20px; max-width:800px; margin:auto; }
+    .card { background:#1f1f1f; padding:30px; margin-bottom:30px; border-radius:12px; }
+    .card h2 { color:#ff4081; margin-bottom:15px; font-size:2rem; }
+    .card p { line-height:1.6; }
+    .countdown, .tracker { text-align:center; margin-top:30px; }
+    .progress-bar { width:100%; height:20px; background:#333; border-radius:10px; overflow:hidden; }
+    .progress-fill { height:100%; background:#ff4081; width:0; transition:width 1s linear; }
+    button { background:#ff4081; border:none; padding:12px 24px; color:#fff; font-weight:bold; border-radius:6px; cursor:pointer; }
+    button:disabled { background:#555; cursor:default; }
+    footer { text-align:center; padding:30px; background:#111; font-size:0.9rem; }
   </style>
 </head>
 <body>
+
   <header>
     <h1>$SKIBIDI Presale Live!</h1>
-    <p>Skibidi is here to flush the competition. The loudest meme coin on Solana has arrived. Don’t miss your chance to ape in early!</p>
+    <p>Skibidi is not just a meme — it's a movement. Fast, fun, and community-first, built on Solana.</p>
+    <nav>
+      <a href="#presale">Presale</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#claim">Claim</a>
+    </nav>
   </header>
-  
-  <div class="container">
+
+  <section id="presale" class="card">
+    <h2>🔥 Presale Details</h2>
+    <p><strong>Rate:</strong> 1 SOL = 19,996,000 SKIBIDI</p>
+    <p><strong>Cap:</strong> 50 SOL total</p>
+    <p><strong>Wallet:</strong> <code>GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2Kma</code></p>
+
     <div class="countdown">
-      <h2>Presale Ends In:</h2>
-      <div id="timer" style="font-size: 2rem; margin-top: 10px;"></div>
+      <h3>🕒 Presale Ends In:</h3>
+      <div id="countdown-timer" style="font-size:2rem;"></div>
     </div>
 
     <div class="tracker">
-      <h2>Presale Progress</h2>
-      <p><span id="sol-raised">0</span> / 50 SOL raised</p>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
+      <h3>📈 Presale Progress</h3>
+      <div class="progress-bar"><div id="progress-bar-fill" class="progress-fill"></div></div>
+      <p><span id="amount-raised">0.00</span> / 50 SOL</p>
     </div>
+  </section>
 
-    <div class="wallet-section">
-      <button id="connect-btn">Connect Wallet</button>
-      <p id="wallet-status"></p>
-      <p id="wallet-address"></p>
-      <button id="claim-btn" disabled>Claim Airdrop</button>
-    </div>
-  </div>
+  <section id="roadmap" class="card">
+    <h2>🛣️ Roadmap & Purpose</h2>
+    <p>$SKIBIDI is the loudest meme on Solana — a zero-tax, lightning-fast community project built purely for fun and chaos. Think of it as your ticket to meme history.</p>
+    <ul>
+      <li><strong>Phase 1 (Presale):</strong> Community funding & airdrops.</li>
+      <li><strong>Phase 2 (Launch):</strong> Listing on DEX + LP locked.</li>
+      <li><strong>Phase 3 (Growth):</strong> Community events, NFTs, meme contests.</li>
+      <li><strong>Phase 4 (Domination):</strong> Social integrations + influencer collabs.</li>
+    </ul>
+  </section>
+
+  <section id="claim" class="card">
+    <h2>🎁 Claim Your SKIBIDI</h2>
+    <p>If you participated in the presale, connect your wallet below to check eligibility and claim your tokens once distribution opens.</p>
+    <button id="connect-btn">Connect Wallet</button>
+    <div id="wallet-status"></div>
+    <p id="wallet-address"></p>
+    <button id="claim-btn" disabled>Claim SKIBIDI Airdrop</button>
+  </section>
 
   <footer>
-    © 2025 $SKIBIDI. Not financial advice. DYOR.
+    © 2025 $SKIBIDI &mdash; Built on Solana. Not financial advice. DYOR.
   </footer>
 
   <script>
-    // Countdown Logic
-    const endTime = new Date("2025-07-18T18:00:00Z").getTime();
-    const timerEl = document.getElementById("timer");
-    const fillEl = document.getElementById("progress-fill");
-    const solEl = document.getElementById("sol-raised");
+    // Countdown & Tracker
+    const END = new Date("2025-07-18T18:00:00Z").getTime();
+    const START = END - (7 * 24 * 60 * 60 * 1000);
+    const totalCap = 50;
+    const timerEl = document.getElementById("countdown-timer");
+    const fillEl = document.getElementById("progress-bar-fill");
+    const raisedEl = document.getElementById("amount-raised");
 
-    function updateCountdown() {
+    function update() {
       const now = Date.now();
-      const diff = endTime - now;
-
-      if (diff <= 0) {
-        timerEl.innerText = "Presale Ended";
+      const t = END - now;
+      if (t < 0) {
+        timerEl.textContent = "Ended!";
         fillEl.style.width = "100%";
-        solEl.innerText = "50";
+        raisedEl.textContent = totalCap.toFixed(2);
         return;
       }
+      const dd = Math.floor(t / 86400000), hh = Math.floor((t % 86400000)/3600000);
+      const mm = Math.floor((t % 3600000)/60000), ss = Math.floor((t % 60000)/1000);
+      timerEl.textContent = `${dd}d ${hh}h ${mm}m ${ss}s`;
 
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / (1000 * 60)) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-      timerEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
-
-      const total = 50;
-      const timePassed = endTime - diff;
-      const progress = ((now - (endTime - 7 * 24 * 60 * 60 * 1000)) / (7 * 24 * 60 * 60 * 1000)) * 100; // Linear 7-day fill
-      const solRaised = Math.min((progress / 100) * total, total).toFixed(2);
-      solEl.innerText = solRaised;
-      fillEl.style.width = `${Math.min(progress, 100)}%`;
-
-      requestAnimationFrame(updateCountdown);
+      const elapsed = now - START;
+      const pct = Math.min(elapsed / (END - START), 1);
+      fillEl.style.width = `${pct * 100}%`;
+      raisedEl.textContent = (totalCap * pct).toFixed(2);
+      requestAnimationFrame(update);
     }
-    updateCountdown();
+    update();
 
-    // Wallet + Claim System (simplified mock)
+    // Snapshot Claim System
+    const CLAIM_URL = "https://your-site.com/snapshot.json"; // upload this
     const connectBtn = document.getElementById("connect-btn");
     const claimBtn = document.getElementById("claim-btn");
-    const statusEl = document.getElementById("wallet-status");
-    const addressEl = document.getElementById("wallet-address");
+    const status = document.getElementById("wallet-status");
+    const addr = document.getElementById("wallet-address");
 
-    connectBtn.addEventListener("click", () => {
-      const dummyAddress = "YourWalletAddress123...";
-      addressEl.innerText = dummyAddress;
-      statusEl.innerText = "Wallet connected ✅";
+    let userAmt = 0;
 
-      // Replace with real snapshot check
-      claimBtn.disabled = false;
-      claimBtn.innerText = "Claim 1,234,567 SKIBIDI";
-    });
+    connectBtn.onclick = async () => {
+      try {
+        const resp = await window.solana.connect();
+        const pub = resp.publicKey.toBase58();
+        addr.textContent = pub; status.textContent = "Connected ✅";
 
-    claimBtn.addEventListener("click", () => {
-      alert("Claim request submitted. Airdrop after presale ends. 🎉");
-    });
+        const snap = await (await fetch(CLAIM_URL)).json();
+        userAmt = snap[pub] || 0;
+        if (userAmt>0) {
+          claimBtn.disabled = false;
+          claimBtn.textContent = `Claim ${userAmt.toLocaleString()} SKIBIDI`;
+        } else {
+          claimBtn.disabled = true;
+          claimBtn.textContent = "Not eligible";
+        }
+      } catch(e){ status.textContent="Connect failed";}
+    };
+
+    claimBtn.onclick = () => {
+      alert("Claim request noted! Tokens will be airdropped after presale ends.");
+    };
   </script>
 </body>
 </html>
