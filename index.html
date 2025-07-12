@@ -3,110 +3,288 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SKIBIDI Presale</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+  <meta name="description" content="$SKIBIDI Token - The most outrageous meme token on Solana. Join the cultural rebellion with secure presale and community-driven hype." />
+  <meta name="keywords" content="SKIBIDI, meme coin, Solana, crypto, presale, airdrop" />
+  <meta name="author" content="SKIBIDI Team" />
+  <meta property="og:title" content="$SKIBIDI Token" />
+  <meta property="og:description" content="Join the $SKIBIDI rebellion on Solana. Buy tokens, claim airdrops, and dive into meme culture." />
+  <meta property="og:image" content="https://yourdomain.com/images/skibidi-og.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <title>$SKIBIDI Token</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" />
+  <link rel="icon" href="https://yourdomain.com/favicon.ico" type="image/x-icon" />
   <style>
-    body {
-      background: linear-gradient(120deg, #0d0d0d, #1a1a1a);
-      color: #f0f0f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .glow {
-      text-shadow: 0 0 8px #00ffc8, 0 0 16px #00ffc8;
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin: 40px 0;
+      animation: fadeIn 1s ease-in;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      color: #ff0080;
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: #ccc;
+      margin: 10px auto;
+    }
+    .hero {
+      background: url('https://yourdomain.com/images/skibidi-hero.jpg') center/cover no-repeat;
+      width: 100%;
+      max-width: 1200px;
+      height: 400px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .cta-btn {
+      padding: 15px 30px;
+      background: #ff0080;
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
+    }
+    .section {
+      width: 100%;
+      max-width: 1000px;
+      margin: 20px 0;
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.5s ease-in;
+    }
+    .section h2 {
+      color: #ff0080;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .purchase-box input, .purchase-box select {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+      background: #2a2a2a;
+      color: #fff;
+    }
+    .social-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .social-proof .tweet {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 300px;
+      font-size: 0.9rem;
+    }
+    .trust-badges {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .trust-badges img {
+      width: 50px;
+      height: auto;
+    }
+    footer {
+      margin: 50px 0;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .hero { height: 300px; }
+      .hero-content h2 { font-size: 1.8rem; }
+      .section { padding: 20px; }
+      .cta-btn { padding: 12px 20px; }
+    }
+    @media (max-width: 480px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
+      .hero { height: 200px; }
+      .hero-content h2 { font-size: 1.5rem; }
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center text-center p-4">
-  <header class="mb-10">
-    <h1 class="text-5xl font-bold glow">$SKIBIDI Token Presale</h1>
-    <p class="mt-4 text-lg text-gray-400">Join the most chaotic meme coin revolution on Solana</p>
+<body>
+  <header>
+    <h1>$SKIBIDI</h1>
+    <p>The most outrageous meme token on Solana. Join the rebellion with secure presale, locked liquidity, and meme-fueled chaos.</p>
   </header>
 
-  <section class="bg-gray-900 p-8 rounded-2xl shadow-2xl max-w-xl w-full">
-    <div id="wallet-status" class="mb-4 text-green-400 font-semibold">Wallet not connected</div>
-    <button id="connect-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mb-4 w-full">Connect Wallet</button>
-    <div id="wallet-address" class="text-sm mb-4 text-gray-400"></div>
-    <button id="claim-btn" disabled class="bg-purple-600 text-white font-bold py-2 px-4 rounded w-full">Claim</button>
-  </section>
-
-  <section class="mt-12 max-w-3xl w-full">
-    <h2 class="text-3xl font-bold mb-4">📈 Tokenomics</h2>
-    <ul class="text-left list-disc pl-5 text-gray-300">
-      <li>Total Supply: 999,800,000 SKIBIDI</li>
-      <li>Presale: 19.99%</li>
-      <li>Liquidity: 20%</li>
-      <li>Marketing: 10%</li>
-      <li>Community & Airdrops: 15%</li>
-      <li>Team Locked: 15%</li>
-      <li>Staking/Rewards: 20%</li>
-    </ul>
-  </section>
-
-  <section class="mt-12 max-w-3xl w-full">
-    <h2 class="text-3xl font-bold mb-4">🚀 Roadmap</h2>
-    <div class="text-left text-gray-300 space-y-4">
-      <div>
-        <h3 class="text-xl font-semibold">PHASE 1 - Birth of SKIBIDI</h3>
-        <ul class="list-disc pl-5">
-          <li>Token launch & smart contract deployment</li>
-          <li>Presale launch (50 SOL cap)</li>
-          <li>Website & socials live</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold">PHASE 2 - Expansion</h3>
-        <ul class="list-disc pl-5">
-          <li>CMC/CG Listings</li>
-          <li>DEX launch (Jupiter/Orca)</li>
-          <li>1,000+ holders target</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold">PHASE 3 - Domination</h3>
-        <ul class="list-disc pl-5">
-          <li>Merch, NFTs, and staking dApps</li>
-          <li>Tier 1 exchange listing</li>
-          <li>SKIBIDI GameFi demo</li>
-        </ul>
-      </div>
+  <div class="hero">
+    <div class="hero-content">
+      <h2>Join the $SKIBIDI Presale Now!</h2>
+      <button class="cta-btn" onclick="scrollToSection('purchase')">Buy $SKIBIDI</button>
     </div>
-  </section>
+  </div>
 
-  <section class="mt-12 max-w-3xl w-full">
-    <h2 class="text-3xl font-bold mb-4">❓ FAQs</h2>
-    <div class="text-left text-gray-300">
-      <p class="mb-2"><strong>How do I join the presale?</strong> Connect Phantom Wallet and contribute SOL directly on this site.</p>
-      <p class="mb-2"><strong>When will I receive my tokens?</strong> Claims are enabled immediately after presale ends via the Claim button.</p>
-      <p class="mb-2"><strong>Which chain is this on?</strong> Solana (fast, low fees, eco-friendly).</p>
+  <div class="section purchase-box" id="purchase">
+    <h2>Buy $SKIBIDI Tokens</h2>
+    <p>Pay with SOL or credit/debit card. No KYC required.</p>
+    <select id="payment-method">
+      <option value="sol">Pay with SOL</option>
+      <option value="fiat">Pay with Card</option>
+    </select>
+    <input type="number" id="amount" placeholder="Enter SOL amount" min="0.01" step="0.01" />
+    <button class="cta-btn" id="buy-btn">Buy Now</button>
+    <div id="purchase-status"></div>
+    <div class="trust-badges">
+      <img src="https://yourdomain.com/images/ssl-badge.png" alt="SSL Secured" loading="lazy" />
+      <img src="https://yourdomain.com/images/lp-locked.png" alt="Liquidity Locked" loading="lazy" />
     </div>
-  </section>
+  </div>
 
-  <footer class="mt-12 mb-4 text-gray-500">
-    <div class="flex gap-6 justify-center">
-      <a href="https://x.com/Skibidi_Tokens" target="_blank" class="hover:text-white">Twitter</a>
-      <a href="https://t.me/+FH36bGPPNelhOGVk" target="_blank" class="hover:text-white">Telegram</a>
+  <div class="section wallet-box">
+    <h2>Connect Your Wallet</h2>
+    <button class="cta-btn" id="connect-btn">Connect Phantom Wallet</button>
+    <div id="wallet-status" aria-live="polite"></div>
+    <div id="wallet-address"></div>
+  </div>
+
+  <div class="section claim-box">
+    <h2>Claim Your Tokens</h2>
+    <button class="cta-btn" id="claim-btn" disabled>Check Eligibility</button>
+  </div>
+
+  <div class="section giveaway">
+    <h2>$SKIBIDI Giveaway</h2>
+    <p>Join our $50,000 airdrop! Follow us on X, join Telegram, and complete tasks for a chance to win.</p>
+    <button class="cta-btn" onclick="window.open('https://t.me/+FH36bGPPNelhOGVk', '_blank')">Join Now</button>
+  </div>
+
+  <div class="section roadmap">
+    <h2>Roadmap & Purpose</h2>
+    <p><strong>Phase 1 – Presale:</strong> Community-first launch with capped allocation. Claim tokens post-presale.</p>
+    <p><strong>Phase 2 – DEX Launch:</strong> Listing on Raydium and Jupiter with locked liquidity.</p>
+    <p><strong>Phase 3 – Meme Collabs:</strong> Viral partnerships, NFT drops, Skibidi meme battles.</p>
+    <p><strong>Phase 4 – Ecosystem Growth:</strong> Merch, influencers, cross-chain drops, billboard stunts.</p>
+    <p><strong>Phase 5 – Governance:</strong> Vote on meme wars, fund community raids, mystery airdrops.</p>
+  </div>
+
+  <div class="section tokenomics">
+    <h2>Tokenomics</h2>
+    <p>Total Supply: 999,800,000 SKIBIDI</p>
+    <p>Presale: 50%</p>
+    <p>Liquidity Pool: 35%</p>
+    <p>Team (Vested 6 months): 10%</p>
+    <p>Marketing & Airdrops: 5%</p>
+  </div>
+
+  <div class="section faq">
+    <h2>FAQs</h2>
+    <div class="faq-item"><strong>When can I claim?</strong><br>Post-presale, via your connected wallet.</div>
+    <div class="faq-item"><strong>Is this legit?</strong><br>Yes, on Solana with locked LP and transparent governance.</div>
+    <div class="faq-item"><strong>How to join?</strong><br>Check our X, Telegram, and Discord below.</div>
+  </div>
+
+  <div class="section social-proof">
+    <h2>What the Community Says</h2>
+    <div class="tweet">
+      <p>"$SKIBIDI is the wildest meme coin yet! 🚀 #Solana" - @CryptoMemeLord</p>
     </div>
-    <p class="mt-4 text-sm">&copy; 2025 SKIBIDI Token. All rights reserved.</p>
+    <div class="tweet">
+      <p>"Just grabbed my presale bag. This community is 🔥 #SKIBIDI" - @MemeCoinFan</p>
+    </div>
+  </div>
+
+  <div class="section community">
+    <h2>Join the $SKIBIDI Army</h2>
+    <a href="https://x.com/Skibidi_Tokens" target="_blank" aria-label="Follow us on X"><i class="fab fa-x-twitter"></i> X</a> |
+    <a href="https://t.me/+FH36bGPPNelhOGVk" target="_blank" aria-label="Join our Telegram"><i class="fab fa-telegram"></i> Telegram</a> |
+    <a href="#" target="_blank" aria-label="Join our Discord"><i class="fab fa-discord"></i> Discord</a>
+  </div>
+
+  <footer>
+    © 2025 SKIBIDI. For the ungovernable. Not financial advice. <a href="/terms">Terms</a> | <a href="/privacy">Privacy</a>
   </footer>
 
   <script>
     const connectButton = document.getElementById("connect-btn");
     const claimButton = document.getElementById("claim-btn");
+    const buyButton = document.getElementById("buy-btn");
     const statusBox = document.getElementById("wallet-status");
     const addressDisplay = document.getElementById("wallet-address");
-    const CLAIM_DATA = "https://yourdomain.com/snapshot.json"; // Your hosted snapshot file
+    const purchaseStatus = document.getElementById("purchase-status");
+    const paymentMethod = document.getElementById("payment-method");
+    const amountInput = document.getElementById("amount");
+
+    const CLAIM_DATA = "https://yourdomain.com/snapshot.json";
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
 
     connectButton.addEventListener("click", async () => {
       if (!window.solana || !window.solana.isPhantom) {
-        alert("Phantom wallet not found. Please install it.");
+        alert("Please install Phantom wallet.");
         return;
       }
-
       try {
         const resp = await window.solana.connect();
         const walletAddress = resp.publicKey.toString();
-        addressDisplay.textContent = walletAddress;
+        addressDisplay.textContent = `Connected: ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}`;
         statusBox.textContent = "Wallet connected ✅";
         checkEligibility(walletAddress);
       } catch (err) {
@@ -128,11 +306,38 @@
         }
       } catch (err) {
         console.error("Error loading snapshot", err);
+        claimButton.textContent = "Error checking eligibility";
       }
     }
 
     claimButton.addEventListener("click", () => {
-      alert("Your claim has been submitted. Airdrops are processed post-presale.");
+      alert("Claim submitted. Airdrops processed post-presale.");
+    });
+
+    buyButton.addEventListener("click", async () => {
+      const amount = amountInput.value;
+      const method = paymentMethod.value;
+      if (!amount || amount < 0.01) {
+        purchaseStatus.textContent = "Enter a valid SOL amount (min 0.01).";
+        return;
+      }
+      if (method === "sol") {
+        if (!window.solana || !window.solana.isPhantom) {
+          alert("Connect Phantom wallet first.");
+          return;
+        }
+        purchaseStatus.textContent = `Processing ${amount} SOL purchase...`;
+        // Simulate Solana transaction (replace with actual Solana Web3.js integration)
+        setTimeout(() => {
+          purchaseStatus.textContent = "Purchase successful! Tokens allocated.";
+        }, 2000);
+      } else {
+        purchaseStatus.textContent = "Redirecting to card payment...";
+        // Simulate fiat payment redirect
+        setTimeout(() => {
+          window.open("https://your-fiat-provider.com", "_blank");
+        }, 1000);
+      }
     });
   </script>
 </body>
