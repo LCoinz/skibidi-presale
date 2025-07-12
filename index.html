@@ -1,528 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="$SKIBIDI Token - The ultimate Pepe-powered meme coin on Solana. Join the presale now!">
-  <meta name="keywords" content="SKIBIDI, meme coin, Solana, crypto, presale">
-  <meta name="author" content="SKIBIDI Team">
-  <meta property="og:title" content="$SKIBIDI Token">
-  <meta property="og:description" content="Join the $SKIBIDI revolution on Solana. Fast, low-fee transactions and meme-powered hype.">
-  <meta property="og:image" content="https://skibidi-token.com/images/pepe-hero.jpg">
-  <meta property="og:url" content="https://skibidi-token.com">
-  <title>$SKIBIDI Token</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous">
-  <link rel="icon" href="https://skibidi-token.com/images/favicon.ico" type="image/x-icon">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYZ123ABC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XYZ123ABC', { 'anonymize_ip': true });
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.8.0/web3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/solana-web3.js/1.78.0/solana-web3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-confetti/0.11.0/js-confetti.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$BABYPEPE - The Littlest Frog with the Biggest Dreams</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      font-family: 'Rubik', sans-serif;
-      background: #0f0f0f;
-      color: #ffffff;
-      min-height: 100vh;
+      background-color: #0e0e0e;
+      color: white;
+      font-family: 'Press Start 2P', cursive;
       overflow-x: hidden;
     }
-    .sticky-header {
-      position: sticky;
-      top: 0;
-      background: rgba(15, 15, 15, 0.95);
-      padding: 15px 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-    .sticky-header a {
-      color: #00ff00;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-    .sticky-header a:hover {
-      color: #66ff66;
-    }
+
     header {
+      background: linear-gradient(to right, #1a1a1a, #222);
+      padding: 2rem 1rem;
       text-align: center;
-      margin: 20px 0;
-      animation: fadeIn 0.8s ease-in;
     }
-    header h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      color: #00ff00;
-      text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+
+    header img {
+      max-width: 120px;
     }
-    header p {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #cccccc;
-      max-width: 600px;
-      margin: 10px auto;
-      line-height: 1.5;
-    }
+
     .hero {
-      background: url('https://skibidi-token.com/images/pepe-hero.jpg') center/cover no-repeat;
-      width: 100%;
-      max-width: 900px;
-      height: 400px;
-      margin: 20px auto;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
       text-align: center;
+      padding: 3rem 1rem;
     }
-    .hero-content h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 15px;
-    }
-    .cta-btn {
-      padding: 12px 25px;
-      background: #00ff00;
+
+    .btn-primary {
+      background-color: #ff69b4;
       border: none;
-      color: #0f0f0f;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .cta-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
-    }
-    .cta-btn:disabled {
-      background: #444444;
-      cursor: not-allowed;
-    }
+
     .section {
-      max-width: 900px;
-      margin: 20px auto;
-      background: #1a1a1a;
-      border-radius: 8px;
-      padding: 25px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 0.8s ease-in;
+      padding: 4rem 1rem;
     }
-    .section h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #00ff00;
-      margin-bottom: 15px;
+
+    .roadmap, .tokenomics, .faq, .community {
+      background-color: #1a1a1a;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
     }
-    .section p, .section ul {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #cccccc;
-      line-height: 1.5;
-    }
-    .presale-counter {
-      font-size: 1rem;
-      color: #00ff00;
+
+    .footer {
       text-align: center;
-      margin-bottom: 15px;
+      padding: 2rem;
+      background-color: #111;
     }
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: #2a2a2a;
-      border-radius: 4px;
-      margin-bottom: 15px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: #00ff00;
-      width: 25%;
-      animation: progress 1s ease-in-out;
-    }
-    .purchase-box input, .purchase-box select {
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 5px;
-      border: 1px solid #00ff00;
-      background: #2a2a2a;
-      color: #ffffff;
-      font-size: 1rem;
-      width: 100%;
-    }
-    .trust-badges {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-    .trust-badges img {
-      width: 40px;
-      height: auto;
-      filter: brightness(1.2);
-    }
-    .loader {
-      display: none;
-      border: 3px solid #cccccc;
-      border-top: 3px solid #00ff00;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      animation: spin 1s linear infinite;
-      margin: 10px auto;
-    }
-    .roadmap {
-      position: relative;
-      padding-left: 40px;
-    }
-    .roadmap::before {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: #00ff00;
-      border-radius: 2px;
-    }
-    .roadmap-item {
-      position: relative;
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #222222;
+
+    .wallet-box {
+      background: #333;
+      padding: 1rem;
       border-radius: 8px;
-      animation: fadeInUp 0.5s ease-in forwards;
-    }
-    .roadmap-item:nth-child(1) { animation-delay: 0.1s; }
-    .roadmap-item:nth-child(2) { animation-delay: 0.2s; }
-    .roadmap-item:nth-child(3) { animation-delay: 0.3s; }
-    .roadmap-item:nth-child(4) { animation-delay: 0.4s; }
-    .roadmap-item:nth-child(5) { animation-delay: 0.5s; }
-    .roadmap-item h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #00ff00;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-    }
-    .roadmap-item h3::before {
-      content: '\f111';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      color: #00ff00;
-      font-size: 0.8rem;
-      position: absolute;
-      left: -30px;
-      top: 15px;
-      background: #1a1a1a;
-      padding: 4px;
-      border-radius: 50%;
-    }
-    .roadmap-item.completed h3::before {
-      content: '\f058';
-      color: #00ff00;
-    }
-    .roadmap-item p, .roadmap-item ul {
-      font-size: 0.9rem;
-      color: #cccccc;
-      line-height: 1.5;
-    }
-    .roadmap-item ul {
-      list-style: none;
-      padding-left: 15px;
-    }
-    .roadmap-item ul li::before {
-      content: '\f0c8';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      color: #00ff00;
-      margin-right: 8px;
-      font-size: 0.7rem;
-    }
-    .cookie-consent {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      background: #222222;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      max-width: 300px;
-      display: none;
-    }
-    .cookie-consent p {
-      font-size: 0.9rem;
-      color: #cccccc;
-      margin-bottom: 10px;
-    }
-    .cookie-consent button {
-      padding: 8px 15px;
-      background: #00ff00;
-      border: none;
-      color: #0f0f0f;
-      border-radius: 5px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-    footer {
       text-align: center;
-      margin: 20px 0;
-      font-size: 0.9rem;
-      color: #666666;
-    }
-    footer a {
-      color: #00ff00;
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: #66ff66;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes progress {
-      from { width: 0; }
-      to { width: 25%; }
-    }
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      .hero { height: 300px; }
-      .hero-content h2 { font-size: 1.8rem; }
-      .section { padding: 20px; }
-      .cta-btn { padding: 10px 20px; }
-      .sticky-header { flex-wrap: wrap; gap: 10px; font-size: 0.9rem; }
-      .roadmap { padding-left: 30px; }
-      .roadmap::before { left: 10px; }
-      .roadmap-item h3::before { left: -25px; }
-    }
-    @media (max-width: 480px) {
-      header h1 { font-size: 2rem; }
-      header p { font-size: 0.9rem; }
-      .hero { height: 200px; }
-      .hero-content h2 { font-size: 1.5rem; }
-      .section h2 { font-size: 1.5rem; }
-      .roadmap-item h3 { font-size: 1.2rem; }
     }
   </style>
 </head>
+
 <body>
-  <div class="cookie-consent" id="cookie-consent">
-    <p>We use cookies to enhance your experience. <a href="/privacy.html">Learn more</a>.</p>
-    <button onclick="acceptCookies()">Accept</button>
-  </div>
-
-  <nav class="sticky-header">
-    <a href="#home" onclick="scrollToSection('home'); gtag('event', 'nav_home', { 'event_category': 'Navigation', 'event_label': 'Home' });">Home</a>
-    <a href="#purchase" onclick="scrollToSection('purchase'); gtag('event', 'nav_purchase', { 'event_category': 'Navigation', 'event_label': 'Purchase' });">Buy $SKIBIDI</a>
-    <a href="#roadmap" onclick="scrollToSection('roadmap'); gtag('event', 'nav_roadmap', { 'event_category': 'Navigation', 'event_label': 'Roadmap' });">Roadmap</a>
-    <a href="#community" onclick="scrollToSection('community'); gtag('event', 'nav_community', { 'event_category': 'Navigation', 'event_label': 'Community' });">Community</a>
-  </nav>
-
-  <header id="home">
-    <h1>$SKIBIDI</h1>
-    <p>The ultimate Pepe-powered meme coin on Solana. Join the presale now!</p>
+  <header>
+    <img src="https://i.imgur.com/koI6zpo.png" alt="$BABYPEPE Logo">
+    <h1>$BABYPEPE</h1>
+    <p>The Littlest Frog with the Biggest Dreams 🐸💗</p>
+    <a href="#buy" class="btn btn-primary m-2">Buy Now</a>
+    <a href="#chart" class="btn btn-outline-light m-2">View Chart</a>
   </header>
 
-  <div class="hero">
-    <div class="hero-content">
-      <h2>Presale Live Now!</h2>
-      <button class="cta-btn" onclick="scrollToSection('purchase'); gtag('event', 'hero_cta', { 'event_category': 'Button', 'event_label': 'Buy SKIBIDI' });">Buy $SKIBIDI</button>
-    </div>
-  </div>
+  <section class="hero">
+    <h2>Community First, Forever Meme</h2>
+    <p>No utility. Just vibes. 0% tax. 93.1% LP Burned. 6.9% Marketing. Contract Renounced.</p>
+  </section>
 
-  <div class="section purchase-box" id="purchase">
-    <h2>Buy $SKIBIDI Tokens</h2>
-    <p class="presale-counter" id="presale-counter">Presale: $250,000 / $1,000,000 raised (25%)</p>
-    <p>Pay with SOL or USDT. No KYC for transactions under $150. Tokens claimable post-presale.</p>
-    <select id="payment-method">
-      <option value="sol">Pay with SOL</option>
-      <option value="usdt">Pay with USDT</option>
-    </select>
-    <input type="number" id="amount" placeholder="Enter SOL/USDT amount" min="0.01" step="0.01" aria-label="Amount to purchase">
-    <button class="cta-btn" id="buy-btn" onclick="buyTokens(); gtag('event', 'buy_click', { 'event_category': 'Button', 'event_label': 'Purchase SKIBIDI' });">Buy Now</button>
-    <div class="loader" id="purchase-loader"></div>
-    <div id="purchase-status" aria-live="polite"></div>
-    <div class="trust-badges">
-      <img src="https://skibidi-token.com/images/ssl-badge.jpg" alt="SSL Secured" loading="lazy">
-      <img src="https://skibidi-token.com/images/locked-liquidity.jpg" alt="Liquidity Locked" loading="lazy">
-    </div>
-  </div>
-
-  <div class="section wallet-box">
-    <h2>Connect Your Wallet</h2>
-    <button class="cta-btn" id="connect-btn" onclick="connectWallet(); gtag('event', 'connect_wallet', { 'event_category': 'Button', 'event_label': 'Connect Wallet' });">Connect Wallet</button>
-    <div class="loader" id="connect-loader"></div>
-    <div id="wallet-status" aria-live="polite"></div>
-    <div id="wallet-address"></div>
-  </div>
-
-  <div class="section claim-box">
-    <h2>Claim Your Tokens</h2>
-    <p>Check eligibility and claim your $SKIBIDI tokens post-presale.</p>
-    <button class="cta-btn" id="claim-btn" disabled onclick="checkEligibility(); gtag('event', 'claim_click', { 'event_category': 'Button', 'event_label': 'Check Eligibility' });">Check Eligibility</button>
-  </div>
-
-  <div class="section giveaway">
-    <h2>$50,000 $SKIBIDI Giveaway</h2>
-    <p>Join our $50,000 airdrop! Follow us on X and Telegram for a chance to win 5,000 $SKIBIDI each for 10 winners.</p>
-    <button class="cta-btn" onclick="window.open('https://t.me/skibiditoken', '_blank'); gtag('event', 'giveaway_click', { 'event_category': 'Button', 'event_label': 'Join Giveaway' });">Join Now</button>
-  </div>
-
-  <div class="section tokenomics">
-    <h2>Tokenomics</h2>
-    <p>Total Supply: 1,000,000,000 SKIBIDI</p>
-    <p>Presale: 26.5% (265M)</p>
-    <p>Liquidity: 20% (200M)</p>
-    <p>Staking & Rewards: 13.5% (135M)</p>
-    <p>Marketing: 10% (100M)</p>
-    <p>DEX Listings: 10% (100M)</p>
-    <p>Ecosystem Expansion: 20% (200M)</p>
-  </div>
-
-  <div class="section roadmap" id="roadmap">
-    <h2>Roadmap</h2>
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-    <div class="roadmap-item completed">
-      <h3>Phase 1 – Presale (Q3 2025)</h3>
-      <p>Launch presale with transparent wallet tracking.</p>
+  <section class="container section">
+    <div class="roadmap">
+      <h3>🚀 Roadmap</h3>
       <ul>
-        <li>265M SKIBIDI allocated (26.5% of supply).</li>
-        <li>Public ledger on Solana Explorer.</li>
-        <li>Weekly AMAs on Telegram/X Spaces.</li>
-        <li>10% bonus for first 1,000 buyers.</li>
+        <li>Phase 1: Conception – Build the $BABYPEPE hype</li>
+        <li>Phase 2: Birth – Launch on DEX, lock LP</li>
+        <li>Phase 3: Crawl – Meme collabs, influencer pushes</li>
+        <li>Phase 4: Walk – NFT drops, listing campaigns</li>
+        <li>Phase 5: Run – Community votes, frogverse expansion</li>
       </ul>
     </div>
-    <div class="roadmap-item">
-      <h3>Phase 2 – DEX Launch (Q4 2025)</h3>
-      <p>List on Raydium with locked liquidity.</p>
-      <ul>
-        <li>List on Raydium (200M SKIBIDI).</li>
-        <li>Lock liquidity for 12 months.</li>
-        <li>Anti-dump bots with $100,000 capital.</li>
-        <li>CoinGecko/CoinMarketCap listings.</li>
-      </ul>
-    </div>
-    <div class="roadmap-item">
-      <h3>Phase 3 – Meme Collabs (Q1 2026)</h3>
-      <p>Partner with meme influencers for viral growth.</p>
-      <ul>
-        <li>Collabs with @PepeArmy, @MemeKings.</li>
-        <li>Launch 1,000 NFTs with 10% royalties.</li>
-        <li>Weekly X Spaces with influencers.</li>
-        <li>$5,000 weekly meme contests.</li>
-      </ul>
-    </div>
-    <div class="roadmap-item">
-      <h3>Phase 4 – Ecosystem Growth (Q2 2026)</h3>
-      <p>Expand $SKIBIDI’s utility and reach.</p>
-      <ul>
-        <li>Cross-chain bridge to Ethereum.</li>
-        <li>Launch merch (500 hoodies, 1,000 hats).</li>
-        <li>Develop “Skibidi Dash” minigame.</li>
-        <li>Billboard ads in New York.</li>
-      </ul>
-    </div>
-    <div class="roadmap-item">
-      <h3>Phase 5 – Governance (Q3 2026)</h3>
-      <p>Empower community with decentralized governance.</p>
-      <ul>
-        <li>Launch governance on Snapshot.org.</li>
-        <li>Vote on $500,000 treasury usage.</li>
-        <li>5% APY staking pools.</li>
-        <li>50,000 SKIBIDI airdrops.</li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="section community" id="community">
-    <h2>Join the $SKIBIDI Community</h2>
-    <p>
-      <a href="https://x.com/skibiditoken" target="_blank" aria-label="Follow on X" onclick="gtag('event', 'social_x', { 'event_category': 'Social', 'event_label': 'X' });"><i class="fab fa-x-twitter"></i> X</a> |
-      <a href="https://t.me/skibiditoken" target="_blank" aria-label="Join Telegram" onclick="gtag('event', 'social_telegram', { 'event_category': 'Social', 'event_label': 'Telegram' });"><i class="fab fa-telegram"></i> Telegram</a>
-    </p>
-    <p><a href="https://skibidi-token.com/whitepaper.pdf" target="_blank" onclick="gtag('event', 'whitepaper_click', { 'event_category': 'Navigation', 'event_label': 'Whitepaper' });">Read our Whitepaper</a></p>
-  </div>
+    <div class="tokenomics">
+      <h3>💰 Tokenomics</h3>
+      <ul>
+        <li>Total Supply: 999,800,000 BABYPEPE</li>
+        <li>LP Burned: 93.1%</li>
+        <li>Marketing: 6.9%</li>
+        <li>Tax: 0%</li>
+        <li>Renounced Ownership ✅</li>
+      </ul>
+    </div>
 
-  <footer>
-    © 2025 SKIBIDI. Not financial advice. 
-    <a href="/terms.html" onclick="gtag('event', 'terms_click', { 'event_category': 'Navigation', 'event_label': 'Terms' });">Terms</a> | 
-    <a href="/privacy.html" onclick="gtag('event', 'privacy_click', { 'event_category': 'Navigation', 'event_label': 'Privacy' });">Privacy</a>
+    <div class="faq">
+      <h3>❓ FAQ</h3>
+      <p><strong>Q: Where can I buy $BABYPEPE?</strong><br>A: After launch, buy on Raydium using Phantom Wallet.</p>
+      <p><strong>Q: Is there a tax?</strong><br>A: Nope. 0% tax forever.</p>
+      <p><strong>Q: Is the contract renounced?</strong><br>A: Yes. Forever safe and community-owned.</p>
+    </div>
+
+    <div class="community">
+      <h3>🌐 Community</h3>
+      <a href="https://x.com/babypepe_token" class="btn btn-outline-light m-1">Twitter</a>
+      <a href="https://t.me/+BABYPEPEGROUP" class="btn btn-outline-light m-1">Telegram</a>
+    </div>
+  </section>
+
+  <section id="buy" class="container section text-center">
+    <div class="wallet-box">
+      <h4>🎒 Connect Wallet</h4>
+      <p id="wallet-status">Not connected</p>
+      <p id="wallet-address"></p>
+      <button id="connect-btn" class="btn btn-primary">Connect Phantom</button>
+      <button id="claim-btn" class="btn btn-success mt-3" disabled>Claim</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Made with ❤️ by frogs for frogs. $BABYPEPE 2025.</p>
   </footer>
 
   <script>
-    const connectButton = document.getElementById('connect-btn');
-    const claimButton = document.getElementById('claim-btn');
-    const buyButton = document.getElementById('buy-btn');
-    const statusBox = document.getElementById('wallet-status');
-    const addressDisplay = document.getElementById('wallet-address');
-    const purchaseStatus = document.getElementById('purchase-status');
-    const purchaseLoader = document.getElementById('purchase-loader');
-    const connectLoader = document.getElementById('connect-loader');
-    const paymentMethod = document.getElementById('payment-method');
-    const amountInput = document.getElementById('amount');
-    const presaleCounter = document.getElementById('presale-counter');
+    const connectButton = document.getElementById("connect-btn");
+    const claimButton = document.getElementById("claim-btn");
+    const statusBox = document.getElementById("wallet-status");
+    const addressDisplay = document.getElementById("wallet-address");
+    const CLAIM_DATA = "https://yourdomain.com/snapshot.json";
 
-    const CLAIM_SNAPSHOT = 'https://skibidi-token.com/snapshot.json';
-    const RPC_URL = 'https://api.mainnet-beta.solana.com';
-    const PRESALE_WALLET = 'YourPresaleWalletAddress';
-    const SKIBIDI_MINT = 'YourSKIBIDIMintAddress';
-    const USDT_MINT = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB';
-    const SOL_TO_SKIBIDI_RATE = 1000;
-    const USDT_TO_SKIBIDI_RATE = 100;
+    connectButton.addEventListener("click", async () => {
+      if (!window.solana || !window.solana.isPhantom) {
+        alert("Phantom wallet not found. Please install it.");
+        return;
+      }
+      try {
+        const resp = await window.solana.connect();
+        const walletAddress = resp.publicKey.toString();
+        addressDisplay.textContent = walletAddress;
+        statusBox.textContent = "Wallet connected ✅";
+        checkEligibility(walletAddress);
+      } catch (err) {
+        statusBox.textContent = "Connection failed ❌";
+        console.error(err);
+      }
+    });
 
-    let provider, signer;
-
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    async function checkEligibility(address) {
+      try {
+        const res = await fetch(CLAIM_DATA);
+        const snapshot = await res.json();
+        if (snapshot[address]) {
+          claimButton.disabled = false;
+          claimButton.textContent = `Claim ${snapshot[address]} BABYPEPE`;
+        } else {
+          claimButton.disabled = true;
+          claimButton.textContent = "Not eligible";
+        }
+      } catch (err) {
+        console.error("Error loading snapshot", err);
+      }
     }
 
-    function triggerConfetti() {
-      confetti({
-        particleCount: 80,
-        spread: 60,
-        origin: { y: 0.6 },
-        colors: ['#00ff00', '#66ff66', '#ffffff']
+    claimButton.addEventListener("click", () => {
+      alert("Your claim has been submitted. Airdrops are processed post-presale.");
+    });
+  </script>
+</body>
+
+</html>
