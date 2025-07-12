@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>$SKIBIDI Presale • Solana Meme Revolution</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -11,24 +12,105 @@
       --card-bg: #1f1f1f;
       --text: #eee;
     }
-    body, html { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:Rubik,sans-serif;}
-    header { background:var(--primary); color:white; padding:60px 20px; text-align:center;}
-    header h1 { font-size:2.8rem; margin-bottom:10px;}
-    header p { font-size:1.1rem; max-width:700px; margin:auto;}
-    nav { margin-top:20px;}
-    nav a { color:white; margin: 0 12px; text-decoration:none; font-weight:600; }
-    section { max-width:800px; margin:40px auto; padding:0 20px;}
-    .card { background:var(--card-bg); padding:30px; margin:30px 0; border-radius:12px; }
-    .card h2 { color:var(--primary); margin-bottom:15px; }
-    ul { padding-left:20px; }
-    ul li { margin:12px 0; line-height:1.5; }
-    .countdown, .tracker { text-align:center; margin:30px 0; }
-    .progress-bar { width:100%; height:22px; background:#333; border-radius:12px; overflow:hidden; }
-    .progress-fill { height:100%; background:var(--primary); width:0; transition:width 0.5s ease-out;}
-    button { background:var(--primary); border:none; padding:12px 24px; color:white; border-radius:6px; cursor:pointer; font-weight:600; }
-    button:disabled { background:#555; cursor:not-allowed; }
-    footer { background:#0a0a0a; color:#777; text-align:center; padding:20px; font-size:0.9rem; }
-    code { background:#000; padding:4px 6px; border-radius:4px; }
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Rubik', sans-serif;
+      text-align: center;
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 30px;
+      margin: 30px 0;
+      border-radius: 12px;
+    }
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    ul {
+      padding-left: 20px;
+      text-align: left;
+    }
+    ul li {
+      margin: 12px 0;
+      line-height: 1.5;
+    }
+    .countdown, .tracker {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 22px;
+      background: #333;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0;
+      transition: width 0.5s ease-out;
+    }
+    button {
+      background: var(--primary);
+      border: none;
+      padding: 12px 24px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:disabled {
+      background: #555;
+      cursor: not-allowed;
+    }
+    footer {
+      background: #0a0a0a;
+      color: #777;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+    code {
+      background: #000;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -50,7 +132,8 @@
     <p><strong>Wallet:</strong> <code>GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2Kma</code></p>
 
     <div class="countdown">
-      <h3>🕒 Countdown to End</h3><div id="countdown-timer" style="font-size:2rem;"></div>
+      <h3>🕒 Countdown to End</h3>
+      <div id="countdown-timer" style="font-size:2rem;"></div>
     </div>
 
     <div class="tracker">
@@ -62,13 +145,13 @@
 
   <section id="roadmap" class="card">
     <h2>🛣️ Roadmap & Purpose</h2>
-    <p>$SKIBIDI is designed to be more than a meme — it's an irreverent community vehicle. We’re here to break the norms, reward the bold, and have fun doxxed—it’s a community-first rebellion.</p>
+    <p>$SKIBIDI is more than just a meme — it's a statement. A decentralized rebellion powered by community spirit, financial freedom, and relentless memes.</p>
     <ul>
-      <li><strong>Phase 1 – Presale</strong>: Community-first, capped, claimable post-sale.</li>
-      <li><strong>Phase 2 – DEX Launch</strong>: Deep liquidity & LP locked for trust.</li>
-      <li><strong>Phase 3 – Meme Collabs</strong>: Partnerships, NFT drops, meme contests.</li>
-      <li><strong>Phase 4 – Ecosystem Growth</strong>: Multi-chain reach, real-world promotions, merchandise.</li>
-      <li><strong>Phase 5 – Governance & Rewards</strong>: Enable holders to vote on future airdrops and community funds.</li>
+      <li><strong>Phase 1 – Presale</strong>: Launch capped presale to gather community funds, spread awareness, and distribute tokens fairly. Transparent wallet tracking & public ledger reporting.</li>
+      <li><strong>Phase 2 – DEX Launch</strong>: Launch on Raydium and Jupiter. Add deep liquidity, lock LP tokens for 12 months, and initiate trading bots to stabilize price and deter dumps.</li>
+      <li><strong>Phase 3 – Meme Collabs</strong>: Partner with top meme accounts, NFT artists, and influencers to create exclusive drops. Host Twitter Spaces and Skibidi-themed contest battles weekly.</li>
+      <li><strong>Phase 4 – Ecosystem Growth</strong>: Expand to other chains, partner with cross-chain bridges. Launch limited-edition merch, meme-based minigames, and utility tools for holders.</li>
+      <li><strong>Phase 5 – Governance & Rewards</strong>: Community can vote on use of treasury funds, meme campaigns, charity donations, and staking pools. SKIBIDI holders will receive airdrops and royalty share from NFT collabs.</li>
     </ul>
   </section>
 
@@ -82,9 +165,9 @@
 
   <footer>© 2025 $SKIBIDI • Built on Solana • Not financial advice • DYOR</footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
   <script>
     const END = new Date("2025-07-18T18:00:00Z").getTime();
-    const START = END - (7 * 24 * 60 * 60 * 1000);
     const CAP = 50;
     const timerEl = document.getElementById("countdown-timer");
     const fillEl = document.getElementById("progress-bar-fill");
@@ -121,7 +204,9 @@
 
     connectBtn.onclick = async () => {
       try {
-        const resp = await window.solana.connect();
+        const provider = window.solana;
+        if (!provider || !provider.isPhantom) throw new Error("Phantom wallet not found");
+        const resp = await provider.connect();
         const pub = resp.publicKey.toBase58();
         addressEl.textContent = pub;
         statusEl.textContent = "Wallet connected ✅";
@@ -134,8 +219,9 @@
           claimBtn.disabled = true;
           claimBtn.textContent = "Not eligible";
         }
-      } catch {
+      } catch (e) {
         statusEl.textContent = "Connection failed ❌";
+        console.error(e);
       }
     };
 
@@ -143,8 +229,5 @@
       alert("Your claim will be processed shortly — tokens airdropped after presale.");
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-
 </body>
 </html>
-
