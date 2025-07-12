@@ -3,387 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="$SKIBIDI Token - The most outrageous meme token on Solana. Join the cultural rebellion with secure presale and community-driven hype." />
-  <meta name="keywords" content="SKIBIDI, meme coin, Solana, crypto, presale, airdrop" />
-  <meta name="author" content="SKIBIDI Team" />
-  <meta property="og:title" content="$SKIBIDI Token" />
-  <meta property="og:description" content="Join the $SKIBIDI rebellion on Solana. Buy tokens, claim airdrops, and dive into meme culture." />
-  <meta property="og:image" content="https://yourdomain.com/images/skibidi-og.jpg" />
-  <meta property="og:url" content="https://yourdomain.com" />
-  <title>$SKIBIDI Token</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" />
-  <link rel="icon" href="https://yourdomain.com/favicon.ico" type="image/x-icon" />
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
-  </script>
+  <title>$SKIBIDI Presale</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
+      margin: 0;
       font-family: 'Rubik', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      background: #0c0c0c;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       padding: 20px;
-      min-height: 100vh;
     }
     header {
       text-align: center;
-      margin: 40px 0;
-      animation: fadeIn 1s ease-in;
+      margin-bottom: 2rem;
     }
     header h1 {
-      font-size: 3.5rem;
-      color: #ff0080;
-      text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+      font-size: 3rem;
+      color: #ff007a;
+      margin-bottom: 0.5rem;
     }
-    header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      color: #ccc;
-      margin: 10px auto;
-    }
-    .hero {
-      background: url('https://yourdomain.com/images/skibidi-hero.jpg') center/cover no-repeat;
+    .section {
+      max-width: 800px;
       width: 100%;
-      max-width: 1200px;
-      height: 400px;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-      overflow: hidden;
-      animation: parallax 20s linear infinite;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      border-radius: 10px;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+    h2 {
+      color: #ff007a;
+      margin-bottom: 1rem;
     }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-content h2 {
-      font-size: 2.5rem;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-    .cta-btn {
-      padding: 15px 30px;
-      background: #ff0080;
+    button {
+      padding: 12px 24px;
+      background: #ff007a;
       border: none;
       color: #fff;
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: pulse 2s infinite;
+      margin: 10px;
+      transition: background 0.3s;
     }
-    .cta-btn:hover {
-      transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
-      animation: none;
+    button:hover {
+      background: #e6006b;
     }
-    .cta-btn.bounce:hover {
-      animation: bounce 0.3s;
-    }
-    .cta-btn:disabled {
-      background: #444;
+    #claim-btn:disabled {
+      background: #888;
       cursor: not-allowed;
-      animation: none;
     }
-    .section {
-      width: 100%;
-      max-width: 1000px;
-      margin: 20px 0;
-      background: #1a1a1a;
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      animation: slideIn 0.5s ease-in;
-    }
-    .section h2 {
-      color: #ff0080;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-    .purchase-box input, .purchase-box select {
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: none;
-      width: 100%;
-      background: #2a2a2a;
-      color: #fff;
-    }
-    .social-proof {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .social-proof .tweet {
-      background: #222;
-      padding: 15px;
-      border-radius: 10px;
-      max-width: 300px;
-      font-size: 0.9rem;
-    }
-    .trust-badges {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .trust-badges img {
-      width: 50px;
-      height: auto;
-    }
-    .loader {
-      display: none;
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #ff0080;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      animation: spin 1s linear infinite;
-      margin: 10px auto;
-    }
-    .roadmap {
-      position: relative;
-      padding-left: 60px;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      background: #2a2a2a;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: #ff0080;
-      width: 20%; /* Phase 1 active as of Q3 2025 */
-      animation: progress 1s ease-in-out;
-    }
-    .progress-label {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    .roadmap::before {
-      content: '';
-      position: absolute;
-      left: 25px;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: #ff0080;
-      border-radius: 2px;
-    }
-    .roadmap-item {
-      position: relative;
-      margin-bottom: 30px;
-      padding: 15px;
-      background: #222;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s, opacity 0.3s;
-      opacity: 0;
-      animation: fadeInUp 0.5s ease-in forwards;
-    }
-    .roadmap-item:nth-child(1) { animation-delay: 0.1s; }
-    .roadmap-item:nth-child(2) { animation-delay: 0.2s; }
-    .roadmap-item:nth-child(3) { animation-delay: 0.3s; }
-    .roadmap-item:nth-child(4) { animation-delay: 0.4s; }
-    .roadmap-item:nth-child(5) { animation-delay: 0.5s; }
-    .roadmap-item:hover {
-      background: #2a2a2a;
-      transform: scale(1.02);
-    }
-    .roadmap-item h3 {
-      font-size: 1.5rem;
-      color: #ff0080;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-    }
-    .roadmap-item h3::before {
-      content: '\f111';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      color: #ff0080;
-      font-size: 1rem;
-      position: absolute;
-      left: -40px;
-      top: 15px;
-      background: #1a1a1a;
-      padding: 5px;
-      border-radius: 50%;
-    }
-    .roadmap-item.completed h3::before {
-      content: '\f058';
-      color: #00ff00;
-    }
-    .roadmap-content {
-      display: none;
-      font-size: 1rem;
-      color: #ccc;
-      line-height: 1.6;
-    }
-    .roadmap-item.active .roadmap-content {
-      display: block;
-    }
-    .roadmap-item ul {
-      list-style: none;
-      padding-left: 20px;
-    }
-    .roadmap-item ul li::before {
-      content: '\f0c8';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      color: #ff0080;
-      margin-right: 10px;
+    footer {
+      margin-top: 50px;
       font-size: 0.8rem;
+      color: #666;
     }
-    footer a {
-      color: #ff0080;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideIn {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes parallax {
-      0% { background-position: center 0; }
-      100% { background-position: center -100px; }
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    @keyframes progress {
-      from { width: 0; }
-      to { width: 20%; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      .hero { height: 300px; }
-      .hero-content h2 { font-size: 1.8rem; }
-      .section { padding: 20px; }
-      .cta-btn { padding: 12px 20px; }
-      .roadmap { padding-left: 40px; }
-      .roadmap::before { left: 15px; }
-      .roadmap-item h3::before { left: -30px; }
-    }
-    @media (max-width: 480px) {
-      header h1 { font-size: 2rem; }
-      header p { font-size: 1rem; }
-      .hero { height: 200px; }
-      .hero-content h2 { font-size: 1.5rem; }
-      .roadmap-item h3 { font-size: 1.2rem; }
+    .info-box {
+      margin-top: 10px;
+      word-break: break-word;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>$SKIBIDI</h1>
-    <p>The most outrageous meme token on Solana. Join the rebellion with secure presale, locked liquidity, and meme-fueled chaos.</p>
+    <h1>$SKIBIDI Presale</h1>
+    <p>The meme revolution that flips the rules.</p>
   </header>
 
-  <div class="hero">
-    <div class="hero-content">
-      <h2>Join the $SKIBIDI Presale Now!</h2>
-      <button class="cta-btn bounce" onclick="scrollToSection('purchase'); gtag('event', 'click_hero_cta', { 'event_category': 'Button', 'event_label': 'Buy SKIBIDI' });">Buy $SKIBIDI</button>
-    </div>
+  <div class="section">
+    <button id="connect-btn">Connect Wallet</button>
+    <div id="wallet-status"></div>
+    <div id="wallet-address" class="info-box"></div>
+    <button id="claim-btn" disabled>Claim</button>
   </div>
 
-  <div class="section purchase-box" id="purchase">
-    <h2>Buy $SKIBIDI Tokens</h2>
-    <p>Pay with SOL or credit/debit card. No KYC for transactions under $150.</p>
-    <select id="payment-method">
-      <option value="sol">Pay with SOL</option>
-      <option value="fiat">Pay with Card</option>
-    </select>
-    <input type="number" id="amount" placeholder="Enter SOL amount" min="0.01" step="0.01" />
-    <button class="cta-btn bounce" id="buy-btn" onclick="gtag('event', 'click_buy', { 'event_category': 'Button', 'event_label': 'Purchase SKIBIDI' });">Buy Now</button>
-    <div class="loader" id="purchase-loader"></div>
-    <div id="purchase-status" aria-live="polite"></div>
-    <div class="trust-badges">
-      <img src="https://i.imgur.com/8vXjY2k.png" alt="SSL Secured" loading="lazy" />
-      <img src="https://i.imgur.com/Q3mZ7vW.png" alt="Liquidity Locked" loading="lazy" />
-    </div>
+  <div class="section">
+    <h2>Roadmap & Purpose</h2>
+    <p><strong>$SKIBIDI</strong> isn't just a meme — it's a decentralized rebellion for those bold enough to laugh while winning. We're here to meme responsibly, reward the real ones, and defy the boring suits of crypto.</p>
+    <ul>
+      <li><strong>Phase 1 – Presale:</strong> Community-first. Capped. Claimable post-sale. No VCs, no whales.</li>
+      <li><strong>Phase 2 – DEX Launch:</strong> Launch on Raydium. LP locked. No funny business.</li>
+      <li><strong>Phase 3 – Meme Collabs:</strong> Community-driven NFT drops, meme battles, and influencer tie-ins.</li>
+      <li><strong>Phase 4 – Ecosystem:</strong> Cross-chain reach, viral ads, partnerships, and merch drops.</li>
+      <li><strong>Phase 5 – Governance:</strong> Community voting on treasury use, rewards, and roadmap updates.</li>
+    </ul>
   </div>
 
-  <div class="section wallet-box">
-    <h2>Connect Your Wallet</h2>
-    <button class="cta-btn bounce" id="connect-btn" onclick="gtag('event', 'click_connect_wallet', { 'event_category': 'Button', 'event_label': 'Connect Wallet' });">Connect Wallet</button>
-    <div class="loader" id="connect-loader"></div>
-    <div id="wallet-status" aria-live="polite"></div>
-    <div id="wallet-address"></div>
+  <div class="section">
+    <h2>Tokenomics</h2>
+    <ul>
+      <li><strong>Total Supply:</strong> 999,800,000</li>
+      <li><strong>Presale:</strong> 50%</li>
+      <li><strong>Liquidity:</strong> 30% (Locked)</li>
+      <li><strong>Marketing:</strong> 10%</li>
+      <li><strong>Community Rewards:</strong> 10%</li>
+    </ul>
   </div>
 
-  <div class="section claim-box">
-    <h2>Claim Your Tokens</h2>
-    <button class="cta-btn bounce" id="claim-btn" disabled onclick="gtag('event', 'click_claim', { 'event_category': 'Button', 'event_label': 'Check Eligibility' });">Check Eligibility</button>
+  <div class="section">
+    <h2>FAQs</h2>
+    <p><strong>When do I get my tokens?</strong> After presale ends, tokens are claimable via the website based on the snapshot.</p>
+    <p><strong>Is liquidity locked?</strong> Yes. 100% of the LP will be locked for community trust.</p>
+    <p><strong>Is this a rug?</strong> Only if your barber is a dev. We’re here to stay.</p>
   </div>
 
-  <div class="section giveaway">
-    <h2>$SKIBIDI Giveaway</h2>
-    <p>Join our $50,000 airdrop! Follow us on X, join Telegram, and complete tasks for a chance to win.</p>
-    <button class="cta-btn bounce" onclick="window.open('https://t.me/+FH36bGPPNelhOGVk', '_blank'); gtag('event', 'click_giveaway', { 'event_category': 'Button', 'event_label': 'Join Giveaway' });">Join Now</button>
+  <div class="section">
+    <h2>Join the Community</h2>
+    <p><a href="https://x.com/Skibidi_Tokens" target="_blank">Twitter</a> | <a href="https://t.me/+FH36bGPPNelhOGVk" target="_blank">Telegram</a></p>
   </div>
 
-  <div class="section roadmap" id="roadmap">
-    <h2>🛣️ Roadmap & Purpose</h2>
-    <p>$SKIBIDI is more than just a meme — it's a decentralized rebellion powered by community spirit, financial freedom, and relentless memes.</p>
-    <div class="progress-label">Progress: Phase 1 (Presale) - 20% Complete</div>
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-    <div class="roadmap-item active" data-phase="1">
-      <h3>Phase 1 – Presale (Q3 2025)</h3>
-      <div class="roadmap-content">
-        <p>Kick off the $SKIBIDI revolution with a community-first presale designed for fairness and transparency.</p>
-        <ul>
-          <li>Launch capped presale with 50% of total supply (499,900,000 SKIBIDI).</li>
-          <li>Transparent wallet tracking via Solana Explorer
+  <footer>
+    © 2025 SKIBIDI. No suits. Just vibes.
+  </footer>
+
+  <script>
+    const connectButton = document.getElementById("connect-btn");
+    const claimButton = document.getElementById("claim-btn");
+    const statusBox = document.getElementById("wallet-status");
+    const addressDisplay = document.getElementById("wallet-address");
+
+    const CLAIM_DATA = "https://yourdomain.com/snapshot.json"; // Your hosted snapshot
+
+    connectButton.addEventListener("click", async () => {
+      if (!window.solana || !window.solana.isPhantom) {
+        alert("Phantom wallet not found. Please install it.");
+        return;
+      }
+
+      try {
+        const resp = await window.solana.connect();
+        const walletAddress = resp.publicKey.toString();
+        addressDisplay.textContent = walletAddress;
+        statusBox.textContent = "Wallet connected ✅";
+        checkEligibility(walletAddress);
+      } catch (err) {
+        statusBox.textContent = "Connection failed ❌";
+        console.error(err);
+      }
+    });
+
+    async function checkEligibility(address) {
+      try {
+        const res = await fetch(CLAIM_DATA);
+        const snapshot = await res.json();
+        if (snapshot[address]) {
+          claimButton.disabled = false;
+          claimButton.textContent = `Claim ${snapshot[address]} SKIBIDI`;
+        } else {
+          claimButton.disabled = true;
+          claimButton.textContent = "Not eligible";
+        }
+      } catch (err) {
+        console.error("Error loading snapshot", err);
+      }
+    }
+
+    claimButton.addEventListener("click", () => {
+      alert("Your claim has been submitted. Airdrops are processed post-presale.");
+    });
+  </script>
+</body>
+</html>
