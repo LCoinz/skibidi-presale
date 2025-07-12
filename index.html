@@ -3,109 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>$SKIBIDI Presale</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+  <title>SKIBIDI Presale</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
   <style>
     body {
-      font-family: 'Rubik', sans-serif;
-      background: #ffe6f0;
-      color: #000;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
+      background: linear-gradient(120deg, #0d0d0d, #1a1a1a);
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    header h1 {
-      font-size: 3rem;
-      color: #ff0080;
-      margin: 2rem 0;
-    }
-    .container {
-      max-width: 800px;
-      padding: 20px;
-    }
-    .wallet-box, .presale-tracker, .countdown, .roadmap {
-      margin: 20px auto;
-    }
-    #connect-btn, #claim-btn {
-      padding: 12px 24px;
-      background: #ff0080;
-      border: none;
-      color: #fff;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      margin: 10px;
-    }
-    #claim-btn:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-    .roadmap {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .roadmap h2 {
-      color: #ff0080;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.8rem;
+    .glow {
+      text-shadow: 0 0 8px #00ffc8, 0 0 16px #00ffc8;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <h1>$SKIBIDI Presale Live!</h1>
-    </header>
+<body class="min-h-screen flex flex-col items-center justify-center text-center p-4">
+  <header class="mb-10">
+    <h1 class="text-5xl font-bold glow">$SKIBIDI Token Presale</h1>
+    <p class="mt-4 text-lg text-gray-400">Join the most chaotic meme coin revolution on Solana</p>
+  </header>
 
-    <div class="wallet-box">
-      <button id="connect-btn">Connect Wallet</button>
-      <div id="wallet-status"></div>
-      <div id="wallet-address"></div>
-      <button id="claim-btn" disabled>Claim</button>
+  <section class="bg-gray-900 p-8 rounded-2xl shadow-2xl max-w-xl w-full">
+    <div id="wallet-status" class="mb-4 text-green-400 font-semibold">Wallet not connected</div>
+    <button id="connect-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mb-4 w-full">Connect Wallet</button>
+    <div id="wallet-address" class="text-sm mb-4 text-gray-400"></div>
+    <button id="claim-btn" disabled class="bg-purple-600 text-white font-bold py-2 px-4 rounded w-full">Claim</button>
+  </section>
+
+  <section class="mt-12 max-w-3xl w-full">
+    <h2 class="text-3xl font-bold mb-4">📈 Tokenomics</h2>
+    <ul class="text-left list-disc pl-5 text-gray-300">
+      <li>Total Supply: 999,800,000 SKIBIDI</li>
+      <li>Presale: 19.99%</li>
+      <li>Liquidity: 20%</li>
+      <li>Marketing: 10%</li>
+      <li>Community & Airdrops: 15%</li>
+      <li>Team Locked: 15%</li>
+      <li>Staking/Rewards: 20%</li>
+    </ul>
+  </section>
+
+  <section class="mt-12 max-w-3xl w-full">
+    <h2 class="text-3xl font-bold mb-4">🚀 Roadmap</h2>
+    <div class="text-left text-gray-300 space-y-4">
+      <div>
+        <h3 class="text-xl font-semibold">PHASE 1 - Birth of SKIBIDI</h3>
+        <ul class="list-disc pl-5">
+          <li>Token launch & smart contract deployment</li>
+          <li>Presale launch (50 SOL cap)</li>
+          <li>Website & socials live</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold">PHASE 2 - Expansion</h3>
+        <ul class="list-disc pl-5">
+          <li>CMC/CG Listings</li>
+          <li>DEX launch (Jupiter/Orca)</li>
+          <li>1,000+ holders target</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold">PHASE 3 - Domination</h3>
+        <ul class="list-disc pl-5">
+          <li>Merch, NFTs, and staking dApps</li>
+          <li>Tier 1 exchange listing</li>
+          <li>SKIBIDI GameFi demo</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <div class="roadmap">
-      <h2>Roadmap & Purpose</h2>
-      <p><strong>$SKIBIDI</strong> is more than a meme — it's a community-powered movement. We’re here to break norms, reward the bold, and keep it real. No empty promises — just pure, unfiltered crypto fun with a purpose.</p>
-      <ul style="text-align:left">
-        <li><strong>Phase 1 – Presale:</strong> A capped, fair presale open to all. Claim tokens post-sale using your wallet.</li>
-        <li><strong>Phase 2 – DEX Launch:</strong> Launch on top Solana DEX with deep liquidity and locked LP for community trust.</li>
-        <li><strong>Phase 3 – Meme Collabs:</strong> Partner with top meme projects, NFT airdrops, and meme competitions.</li>
-        <li><strong>Phase 4 – Ecosystem Growth:</strong> Cross-chain expansion, influencer partnerships, viral videos, and $SKIBIDI merch drops.</li>
-        <li><strong>Phase 5 – Governance & Rewards:</strong> Token holders vote on future airdrops, treasury usage, and meme contests.</li>
-      </ul>
+  <section class="mt-12 max-w-3xl w-full">
+    <h2 class="text-3xl font-bold mb-4">❓ FAQs</h2>
+    <div class="text-left text-gray-300">
+      <p class="mb-2"><strong>How do I join the presale?</strong> Connect Phantom Wallet and contribute SOL directly on this site.</p>
+      <p class="mb-2"><strong>When will I receive my tokens?</strong> Claims are enabled immediately after presale ends via the Claim button.</p>
+      <p class="mb-2"><strong>Which chain is this on?</strong> Solana (fast, low fees, eco-friendly).</p>
     </div>
+  </section>
 
-    <footer>
-      © 2025 SKIBIDI. All rights reserved. Not financial advice.
-    </footer>
-  </div>
+  <footer class="mt-12 mb-4 text-gray-500">
+    <div class="flex gap-6 justify-center">
+      <a href="https://x.com/Skibidi_Tokens" target="_blank" class="hover:text-white">Twitter</a>
+      <a href="https://t.me/+FH36bGPPNelhOGVk" target="_blank" class="hover:text-white">Telegram</a>
+    </div>
+    <p class="mt-4 text-sm">&copy; 2025 SKIBIDI Token. All rights reserved.</p>
+  </footer>
 
-  <script type="module">
-    import { PhantomWalletAdapter } from "https://unpkg.com/@solana/wallet-adapter-wallets@0.20.0/lib/esm/phantom.js";
-
+  <script>
     const connectButton = document.getElementById("connect-btn");
     const claimButton = document.getElementById("claim-btn");
     const statusBox = document.getElementById("wallet-status");
     const addressDisplay = document.getElementById("wallet-address");
-    const CLAIM_DATA = "https://yourdomain.com/snapshot.json"; // Replace with your real hosted JSON
-
-    let wallet = new PhantomWalletAdapter();
+    const CLAIM_DATA = "https://yourdomain.com/snapshot.json"; // Your hosted snapshot file
 
     connectButton.addEventListener("click", async () => {
+      if (!window.solana || !window.solana.isPhantom) {
+        alert("Phantom wallet not found. Please install it.");
+        return;
+      }
+
       try {
-        await wallet.connect();
-        addressDisplay.textContent = wallet.publicKey.toBase58();
+        const resp = await window.solana.connect();
+        const walletAddress = resp.publicKey.toString();
+        addressDisplay.textContent = walletAddress;
         statusBox.textContent = "Wallet connected ✅";
-        checkEligibility(wallet.publicKey.toBase58());
+        checkEligibility(walletAddress);
       } catch (err) {
         statusBox.textContent = "Connection failed ❌";
         console.error(err);
@@ -129,7 +132,7 @@
     }
 
     claimButton.addEventListener("click", () => {
-      alert("Your claim request has been submitted. Airdrops will be processed after presale ends. 🎁");
+      alert("Your claim has been submitted. Airdrops are processed post-presale.");
     });
   </script>
 </body>
