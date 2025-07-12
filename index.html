@@ -223,11 +223,12 @@
       margin-right: 10px;
       font-size: 0.8rem;
     }
-    footer {
-      margin: 50px 0;
-      font-size: 0.9rem;
-      color: #666;
-      text-align: center;
+    footer a {
+      color: #ff0080;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -285,14 +286,15 @@
     <div class="loader" id="purchase-loader"></div>
     <div id="purchase-status" aria-live="polite"></div>
     <div class="trust-badges">
-      <img src="https://yourdomain.com/images/ssl-badge.png" alt="SSL Secured" loading="lazy" />
-      <img src="https://yourdomain.com/images/lp-locked.png" alt="Liquidity Locked" loading="lazy" />
+      <img src="https://i.imgur.com/8vXjY2k.png" alt="SSL Secured" loading="lazy" />
+      <img src="https://i.imgur.com/Q3mZ7vW.png" alt="Liquidity Locked" loading="lazy" />
     </div>
   </div>
 
   <div class="section wallet-box">
     <h2>Connect Your Wallet</h2>
-    <button class="cta-btn" id="connect-btn">Connect Phantom Wallet</button>
+    <button class="cta-btn" id="connect-btn">Connect Wallet</button>
+    <div class="loader" id="connect-loader"></div>
     <div id="wallet-status" aria-live="polite"></div>
     <div id="wallet-address"></div>
   </div>
@@ -327,52 +329,56 @@
     <div class="roadmap-item" data-phase="2">
       <h3>Phase 2 – DEX Launch (Q4 2025)</h3>
       <div class="roadmap-content">
-        <p>Go live on top Solana DEXs, ensuring deep liquidity and price stability.</p>
+        <p>Launch $SKIBIDI on leading Solana DEXs with robust liquidity and anti-dump measures.</p>
         <ul>
-          <li>List $SKIBIDI on Raydium and Jupiter with 35% of supply allocated to liquidity pools.</li>
-          <li>Lock liquidity pool tokens for 12 months via Team.Finance or Unicrypt.</li>
-          <li>Deploy trading bots to stabilize price and prevent early dumps.</li>
-          <li>Partner with market makers to ensure smooth trading experience.</li>
-          <li>Host launch party on Discord with giveaways for first traders.</li>
+          <li>List on Raydium and Jupiter with 35% of supply (349,930,000 SKIBIDI) allocated to liquidity pools.</li>
+          <li>Lock liquidity for 12 months via Team.Finance or Unicrypt, verified on Solana Explorer.</li>
+          <li>Deploy trading bots with $100,000 initial capital to stabilize price and prevent dumps.</li>
+          <li>Partner with top market makers (e.g., Wintermute) for smooth trading.</li>
+          <li>Host a Discord launch party with 10,000 SKIBIDI in giveaways for first 500 traders.</li>
+          <li>Integrate with CoinGecko and CoinMarketCap for price tracking within 48 hours of launch.</li>
         </ul>
       </div>
     </div>
     <div class="roadmap-item" data-phase="3">
       <h3>Phase 3 – Meme Collabs (Q1 2026)</h3>
       <div class="roadmap-content">
-        <p>Amplify $SKIBIDI’s cultural impact through viral partnerships and community events.</p>
+        <p>Amplify $SKIBIDI’s cultural impact through viral partnerships and community-driven events.</p>
         <ul>
-          <li>Collaborate with top meme accounts (e.g., @DogeArmy, @MemeLordz) for viral campaigns.</li>
-          <li>Launch exclusive NFT drops with underground artists, 10% royalties to $SKIBIDI holders.</li>
-          <li>Host weekly Twitter Spaces with influencers discussing meme culture and $SKIBIDI.</li>
-          <li>Run Skibidi-themed meme battles with $5,000 in weekly prizes.</li>
-          <li>Create a community meme gallery on our website for user submissions.</li>
+          <li>Partner with top meme accounts (@DogeArmy, @MemeLordz) for campaigns reaching 1M+ followers.</li>
+          <li>Launch 1,000 unique NFT drops with artists, 10% royalties distributed to $SKIBIDI holders.</li>
+          <li>Host weekly Twitter Spaces with influencers (e.g., 5,000 attendees per session).</li>
+          <li>Run Skibidi meme battles with $5,000 weekly prizes in $SKIBIDI tokens.</li>
+          <li>Create a community meme gallery on our website, with top submissions earning 1,000 SKIBIDI each.</li>
+          <li>Collaborate with TikTok creators for viral $SKIBIDI challenges, targeting 10M views.</li>
         </ul>
       </div>
     </div>
     <div class="roadmap-item" data-phase="4">
       <h3>Phase 4 – Ecosystem Growth (Q2 2026)</h3>
       <div class="roadmap-content">
-        <p>Expand $SKIBIDI’s reach across chains and into real-world utility.</p>
+        <p>Expand $SKIBIDI’s reach across chains and into real-world utility for holders.</p>
         <ul>
-          <li>Integrate with cross-chain bridges (e.g., Wormhole) for Ethereum and BNB Chain support.</li>
-          <li>Launch limited-edition $SKIBIDI merch (hoodies, hats) via Printful integration.</li>
-          <li>Develop meme-based minigames (e.g., Skibidi Run) with $SKIBIDI rewards.</li>
-          <li>Partner with influencers for viral TikTok and YouTube campaigns.</li>
-          <li>Introduce utility tools: $SKIBIDI wallet tracker and portfolio app.</li>
+          <li>Integrate with Wormhole for cross-chain support on Ethereum and BNB Chain.</li>
+          <li>Launch limited-edition merch (500 hoodies, 1,000 hats) via Printful, with 5% profits to holders.</li>
+          <li>Develop “Skibidi Run” minigame, rewarding top players with 500 SKIBIDI daily.</li>
+          <li>Partner with 10 influencers (500K+ followers each) for YouTube/TikTok campaigns.</li>
+          <li>Release $SKIBIDI wallet tracker app, supporting portfolio management and price alerts.</li>
+          <li>Secure billboard ads in 3 major cities (e.g., Times Square) for global exposure.</li>
         </ul>
       </div>
     </div>
     <div class="roadmap-item" data-phase="5">
       <h3>Phase 5 – Governance & Rewards (Q3 2026)</h3>
       <div class="roadmap-content">
-        <p>Empower the $SKIBIDI community to shape the project’s future.</p>
+        <p>Empower the $SKIBIDI community to shape the project’s future with decentralized governance.</p>
         <ul>
-          <li>Launch decentralized governance via Snapshot.org for $SKIBIDI holders.</li>
-          <li>Vote on treasury fund allocation (e.g., meme campaigns, charity donations).</li>
-          <li>Introduce staking pools with 5% APY for long-term holders.</li>
-          <li>Distribute surprise airdrops to active community members.</li>
-          <li>Share 20% of NFT collab royalties with $SKIBIDI holders.</li>
+          <li>Launch governance on Snapshot.org, requiring 1,000 SKIBIDI to vote.</li>
+          <li>Vote on treasury funds ($500,000 initial pool) for campaigns, charity, or development.</li>
+          <li>Introduce staking pools with 5% APY, locking 10% of circulating supply.</li>
+          <li>Distribute 50,000 SKIBIDI in surprise airdrops to active Telegram/Discord members.</li>
+          <li>Share 20% of NFT collab royalties with holders (est. $50,000 annually).</li>
+          <li>Fund community-led meme raids with $10,000 monthly budget.</li>
         </ul>
       </div>
     </div>
@@ -412,7 +418,7 @@
   </div>
 
   <footer>
-    © 2025 SKIBIDI. For the ungovernable. Not financial advice. <a href="/terms">Terms</a> | <a href="/privacy">Privacy</a>
+    © 2025 SKIBIDI. For the ungovernable. Not financial advice. <a href="/terms.html">Terms</a> | <a href="/privacy.html">Privacy</a>
   </footer>
 
   <script src="https://unpkg.com/@solana/web3.js@1.95.3"></script>
@@ -426,6 +432,7 @@
     const addressDisplay = document.getElementById("wallet-address");
     const purchaseStatus = document.getElementById("purchase-status");
     const purchaseLoader = document.getElementById("purchase-loader");
+    const connectLoader = document.getElementById("connect-loader");
     const paymentMethod = document.getElementById("payment-method");
     const amountInput = document.getElementById("amount");
 
@@ -469,19 +476,42 @@
     }
 
     connectButton.addEventListener("click", async () => {
-      if (!window.solana || !window.solana.isPhantom) {
-        alert("Please install Phantom wallet.");
+      connectButton.disabled = true;
+      connectLoader.style.display = "block";
+      statusBox.textContent = "Connecting...";
+
+      if (!window.solana) {
+        statusBox.textContent = "No Solana wallet detected. Install Phantom or Solflare.";
+        connectLoader.style.display = "none";
+        connectButton.disabled = false;
         return;
       }
+
       try {
-        const resp = await window.solana.connect();
+        const maxRetries = 3;
+        let attempt = 0;
+        let resp;
+        while (attempt < maxRetries) {
+          try {
+            resp = await window.solana.connect();
+            break;
+          } catch (err) {
+            attempt++;
+            if (attempt === maxRetries) throw err;
+            await new Promise(resolve => setTimeout(resolve, 1000));
+          }
+        }
+
         const walletAddress = resp.publicKey.toString();
         addressDisplay.textContent = `Connected: ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}`;
         statusBox.textContent = "Wallet connected ✅";
         checkEligibility(walletAddress);
       } catch (err) {
-        statusBox.textContent = "Connection failed ❌";
+        statusBox.textContent = `Connection failed: ${err.message || "Unknown error"}. Try again.`;
         console.error(err);
+      } finally {
+        connectLoader.style.display = "none";
+        connectButton.disabled = false;
       }
     });
 
@@ -528,8 +558,8 @@
       purchaseStatus.textContent = "Processing...";
 
       if (method === "sol") {
-        if (!window.solana || !window.solana.isPhantom) {
-          purchaseStatus.textContent = "Connect Phantom wallet first.";
+        if (!window.solana) {
+          purchaseStatus.textContent = "Connect a Solana wallet first.";
           purchaseLoader.style.display = "none";
           buyButton.disabled = false;
           return;
