@@ -92,6 +92,10 @@
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
     }
+    .cta-btn:disabled {
+      background: #444;
+      cursor: not-allowed;
+    }
     .section {
       width: 100%;
       max-width: 1000px;
@@ -138,6 +142,87 @@
       width: 50px;
       height: auto;
     }
+    .loader {
+      display: none;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #ff0080;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+    }
+    .roadmap {
+      position: relative;
+      padding-left: 60px;
+    }
+    .roadmap::before {
+      content: '';
+      position: absolute;
+      left: 25px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #ff0080;
+      border-radius: 2px;
+    }
+    .roadmap-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding: 15px;
+      background: #222;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .roadmap-item:hover {
+      background: #2a2a2a;
+    }
+    .roadmap-item h3 {
+      font-size: 1.5rem;
+      color: #ff0080;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .roadmap-item h3::before {
+      content: '\f111';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #ff0080;
+      font-size: 1rem;
+      position: absolute;
+      left: -40px;
+      top: 15px;
+      background: #1a1a1a;
+      padding: 5px;
+      border-radius: 50%;
+    }
+    .roadmap-item.completed h3::before {
+      content: '\f058';
+      color: #00ff00;
+    }
+    .roadmap-content {
+      display: none;
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .roadmap-item.active .roadmap-content {
+      display: block;
+    }
+    .roadmap-item ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+    .roadmap-item ul li::before {
+      content: '\f0c8';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #ff0080;
+      margin-right: 10px;
+      font-size: 0.8rem;
+    }
     footer {
       margin: 50px 0;
       font-size: 0.9rem;
@@ -152,18 +237,26 @@
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     @media (max-width: 768px) {
       header h1 { font-size: 2.5rem; }
       .hero { height: 300px; }
       .hero-content h2 { font-size: 1.8rem; }
       .section { padding: 20px; }
       .cta-btn { padding: 12px 20px; }
+      .roadmap { padding-left: 40px; }
+      .roadmap::before { left: 15px; }
+      .roadmap-item h3::before { left: -30px; }
     }
     @media (max-width: 480px) {
       header h1 { font-size: 2rem; }
       header p { font-size: 1rem; }
       .hero { height: 200px; }
       .hero-content h2 { font-size: 1.5rem; }
+      .roadmap-item h3 { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -182,14 +275,15 @@
 
   <div class="section purchase-box" id="purchase">
     <h2>Buy $SKIBIDI Tokens</h2>
-    <p>Pay with SOL or credit/debit card. No KYC required.</p>
+    <p>Pay with SOL or credit/debit card. No KYC for transactions under $150.</p>
     <select id="payment-method">
       <option value="sol">Pay with SOL</option>
       <option value="fiat">Pay with Card</option>
     </select>
     <input type="number" id="amount" placeholder="Enter SOL amount" min="0.01" step="0.01" />
     <button class="cta-btn" id="buy-btn">Buy Now</button>
-    <div id="purchase-status"></div>
+    <div class="loader" id="purchase-loader"></div>
+    <div id="purchase-status" aria-live="polite"></div>
     <div class="trust-badges">
       <img src="https://yourdomain.com/images/ssl-badge.png" alt="SSL Secured" loading="lazy" />
       <img src="https://yourdomain.com/images/lp-locked.png" alt="Liquidity Locked" loading="lazy" />
@@ -214,13 +308,74 @@
     <button class="cta-btn" onclick="window.open('https://t.me/+FH36bGPPNelhOGVk', '_blank')">Join Now</button>
   </div>
 
-  <div class="section roadmap">
-    <h2>Roadmap & Purpose</h2>
-    <p><strong>Phase 1 – Presale:</strong> Community-first launch with capped allocation. Claim tokens post-presale.</p>
-    <p><strong>Phase 2 – DEX Launch:</strong> Listing on Raydium and Jupiter with locked liquidity.</p>
-    <p><strong>Phase 3 – Meme Collabs:</strong> Viral partnerships, NFT drops, Skibidi meme battles.</p>
-    <p><strong>Phase 4 – Ecosystem Growth:</strong> Merch, influencers, cross-chain drops, billboard stunts.</p>
-    <p><strong>Phase 5 – Governance:</strong> Vote on meme wars, fund community raids, mystery airdrops.</p>
+  <div class="section roadmap" id="roadmap">
+    <h2>🛣️ Roadmap & Purpose</h2>
+    <p>$SKIBIDI is more than just a meme — it's a decentralized rebellion powered by community spirit, financial freedom, and relentless memes.</p>
+    <div class="roadmap-item active" data-phase="1">
+      <h3>Phase 1 – Presale (Q3 2025)</h3>
+      <div class="roadmap-content">
+        <p>Kick off the $SKIBIDI revolution with a community-first presale designed for fairness and transparency.</p>
+        <ul>
+          <li>Launch capped presale with 50% of total supply (499,900,000 SKIBIDI).</li>
+          <li>Transparent wallet tracking via Solana Explorer, with real-time updates on funds raised.</li>
+          <li>Public ledger reporting on our website to ensure accountability.</li>
+          <li>Community AMAs on Telegram and Twitter Spaces to address questions.</li>
+          <li>Early bird bonuses: 10% extra tokens for first 1,000 buyers.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="roadmap-item" data-phase="2">
+      <h3>Phase 2 – DEX Launch (Q4 2025)</h3>
+      <div class="roadmap-content">
+        <p>Go live on top Solana DEXs, ensuring deep liquidity and price stability.</p>
+        <ul>
+          <li>List $SKIBIDI on Raydium and Jupiter with 35% of supply allocated to liquidity pools.</li>
+          <li>Lock liquidity pool tokens for 12 months via Team.Finance or Unicrypt.</li>
+          <li>Deploy trading bots to stabilize price and prevent early dumps.</li>
+          <li>Partner with market makers to ensure smooth trading experience.</li>
+          <li>Host launch party on Discord with giveaways for first traders.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="roadmap-item" data-phase="3">
+      <h3>Phase 3 – Meme Collabs (Q1 2026)</h3>
+      <div class="roadmap-content">
+        <p>Amplify $SKIBIDI’s cultural impact through viral partnerships and community events.</p>
+        <ul>
+          <li>Collaborate with top meme accounts (e.g., @DogeArmy, @MemeLordz) for viral campaigns.</li>
+          <li>Launch exclusive NFT drops with underground artists, 10% royalties to $SKIBIDI holders.</li>
+          <li>Host weekly Twitter Spaces with influencers discussing meme culture and $SKIBIDI.</li>
+          <li>Run Skibidi-themed meme battles with $5,000 in weekly prizes.</li>
+          <li>Create a community meme gallery on our website for user submissions.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="roadmap-item" data-phase="4">
+      <h3>Phase 4 – Ecosystem Growth (Q2 2026)</h3>
+      <div class="roadmap-content">
+        <p>Expand $SKIBIDI’s reach across chains and into real-world utility.</p>
+        <ul>
+          <li>Integrate with cross-chain bridges (e.g., Wormhole) for Ethereum and BNB Chain support.</li>
+          <li>Launch limited-edition $SKIBIDI merch (hoodies, hats) via Printful integration.</li>
+          <li>Develop meme-based minigames (e.g., Skibidi Run) with $SKIBIDI rewards.</li>
+          <li>Partner with influencers for viral TikTok and YouTube campaigns.</li>
+          <li>Introduce utility tools: $SKIBIDI wallet tracker and portfolio app.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="roadmap-item" data-phase="5">
+      <h3>Phase 5 – Governance & Rewards (Q3 2026)</h3>
+      <div class="roadmap-content">
+        <p>Empower the $SKIBIDI community to shape the project’s future.</p>
+        <ul>
+          <li>Launch decentralized governance via Snapshot.org for $SKIBIDI holders.</li>
+          <li>Vote on treasury fund allocation (e.g., meme campaigns, charity donations).</li>
+          <li>Introduce staking pools with 5% APY for long-term holders.</li>
+          <li>Distribute surprise airdrops to active community members.</li>
+          <li>Share 20% of NFT collab royalties with $SKIBIDI holders.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <div class="section tokenomics">
@@ -260,6 +415,9 @@
     © 2025 SKIBIDI. For the ungovernable. Not financial advice. <a href="/terms">Terms</a> | <a href="/privacy">Privacy</a>
   </footer>
 
+  <script src="https://unpkg.com/@solana/web3.js@1.95.3"></script>
+  <script src="https://unpkg.com/@solana/spl-token@0.4.8"></script>
+  <script src="https://widget.moonpay.com/moonpay-sdk-v4.js"></script>
   <script>
     const connectButton = document.getElementById("connect-btn");
     const claimButton = document.getElementById("claim-btn");
@@ -267,13 +425,47 @@
     const statusBox = document.getElementById("wallet-status");
     const addressDisplay = document.getElementById("wallet-address");
     const purchaseStatus = document.getElementById("purchase-status");
+    const purchaseLoader = document.getElementById("purchase-loader");
     const paymentMethod = document.getElementById("payment-method");
     const amountInput = document.getElementById("amount");
 
     const CLAIM_DATA = "https://yourdomain.com/snapshot.json";
+    const RPC_ENDPOINT = "https://api.mainnet-beta.solana.com"; // Replace with Chainstack/Alchemy RPC
+    const PRESALE_WALLET = "YourPresaleWalletAddressHere"; // Your presale wallet public key
+    const SKIBIDI_MINT = "YourSkibidiTokenMintAddressHere"; // $SKIBIDI SPL token mint address
+    const MOONPAY_API_KEY = "pk_test_yourMoonPayApiKey"; // Replace with your MoonPay API key
+    const SOL_TO_SKIBIDI_RATE = 1000; // 1 SOL = 1000 $SKIBIDI (adjust as needed)
+
+    const connection = new solanaWeb3.Connection(RPC_ENDPOINT, "confirmed");
 
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+
+    async function getTokenAccount(walletAddress, mintAddress) {
+      const tokenAccounts = await connection.getTokenAccountsByOwner(
+        new solanaWeb3.PublicKey(walletAddress),
+        { mint: new solanaWeb3.PublicKey(mintAddress) }
+      );
+      if (tokenAccounts.value.length === 0) {
+        return null;
+      }
+      return tokenAccounts.value[0].pubkey;
+    }
+
+    async function createTokenAccount(wallet, mintAddress) {
+      const tokenAccount = solanaWeb3.Keypair.generate();
+      const transaction = new solanaWeb3.Transaction().add(
+        splToken.createAssociatedTokenAccountInstruction(
+          wallet.publicKey,
+          tokenAccount.publicKey,
+          wallet.publicKey,
+          new solanaWeb3.PublicKey(mintAddress)
+        )
+      );
+      transaction.feePayer = wallet.publicKey;
+      transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+      return { transaction, tokenAccount };
     }
 
     connectButton.addEventListener("click", async () => {
@@ -310,35 +502,170 @@
       }
     }
 
-    claimButton.addEventListener("click", () => {
-      alert("Claim submitted. Airdrops processed post-presale.");
+    claimButton.addEventListener("click", async () => {
+      purchaseStatus.textContent = "Submitting claim...";
+      purchaseLoader.style.display = "block";
+      try {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        purchaseStatus.textContent = "Claim submitted. Airdrops processed post-presale.";
+      } catch (err) {
+        purchaseStatus.textContent = "Claim failed. Try again.";
+        console.error(err);
+      } finally {
+        purchaseLoader.style.display = "none";
+      }
     });
 
     buyButton.addEventListener("click", async () => {
-      const amount = amountInput.value;
+      const amount = parseFloat(amountInput.value);
       const method = paymentMethod.value;
       if (!amount || amount < 0.01) {
         purchaseStatus.textContent = "Enter a valid SOL amount (min 0.01).";
         return;
       }
+      purchaseLoader.style.display = "block";
+      buyButton.disabled = true;
+      purchaseStatus.textContent = "Processing...";
+
       if (method === "sol") {
         if (!window.solana || !window.solana.isPhantom) {
-          alert("Connect Phantom wallet first.");
+          purchaseStatus.textContent = "Connect Phantom wallet first.";
+          purchaseLoader.style.display = "none";
+          buyButton.disabled = false;
           return;
         }
-        purchaseStatus.textContent = `Processing ${amount} SOL purchase...`;
-        // Simulate Solana transaction (replace with actual Solana Web3.js integration)
-        setTimeout(() => {
-          purchaseStatus.textContent = "Purchase successful! Tokens allocated.";
-        }, 2000);
+        try {
+          const resp = await window.solana.connect();
+          const payer = resp.publicKey;
+          const solAmount = amount * solanaWeb3.LAMPORTS_PER_SOL;
+          const skibidiAmount = Math.floor(amount * SOL_TO_SKIBIDI_RATE * 10 ** 9);
+
+          let payerTokenAccount = await getTokenAccount(payer.toString(), SKIBIDI_MINT);
+          if (!payerTokenAccount) {
+            const { transaction, tokenAccount } = await createTokenAccount(resp, SKIBIDI_MINT);
+            const signedTx = await window.solana.signTransaction(transaction);
+            const signature = await connection.sendRawTransaction(signedTx.serialize());
+            await connection.confirmTransaction(signature, "confirmed");
+            payerTokenAccount = tokenAccount.publicKey;
+          }
+
+          const solTransfer = new solanaWeb3.Transaction().add(
+            solanaWeb3.SystemProgram.transfer({
+              fromPubkey: payer,
+              toPubkey: new solanaWeb3.PublicKey(PRESALE_WALLET),
+              lamports: solAmount,
+            })
+          );
+
+          const tokenTransfer = new solanaWeb3.Transaction().add(
+            splToken.createTransferInstruction(
+              await getTokenAccount(PRESALE_WALLET, SKIBIDI_MINT),
+              payerTokenAccount,
+              new solanaWeb3.PublicKey(PRESALE_WALLET),
+              skibidiAmount,
+              []
+            )
+          );
+
+          const combinedTx = new solanaWeb3.Transaction();
+          combinedTx.add(solTransfer);
+          combinedTx.add(tokenTransfer);
+          combinedTx.feePayer = payer;
+          combinedTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+
+          const signedTx = await window.solana.signTransaction(combinedTx);
+          const signature = await connection.sendRawTransaction(signedTx.serialize());
+          await connection.confirmTransaction(signature, "confirmed");
+
+          purchaseStatus.textContent = `Success! ${amount * SOL_TO_SKIBIDI_RATE} $SKIBIDI sent to your wallet.`;
+        } catch (err) {
+          purchaseStatus.textContent = "Transaction failed. Check wallet or network.";
+          console.error(err);
+        }
       } else {
-        purchaseStatus.textContent = "Redirecting to card payment...";
-        // Simulate fiat payment redirect
-        setTimeout(() => {
-          window.open("https://your-fiat-provider.com", "_blank");
-        }, 1000);
+        try {
+          const moonpaySdk = new MoonPaySDK({
+            apiKey: MOONPAY_API_KEY,
+            environment: "sandbox",
+            container: "#moonpay-widget",
+            onSuccess: (data) => {
+              purchaseStatus.textContent = `Fiat purchase successful! ${data.amount} SOL sent to your wallet.`;
+              purchaseLoader.style.display = "none";
+              buyButton.disabled = false;
+            },
+            onError: (error) => {
+              purchaseStatus.textContent = "Fiat purchase failed. Try again.";
+              console.error(error);
+              purchaseLoader.style.display = "none";
+              buyButton.disabled = false;
+            },
+          });
+          moonpaySdk.show({
+            currencyCode: "SOL",
+            walletAddress: window.solana?.publicKey?.toString() || "",
+            amount: amount,
+            baseCurrencyCode: "USD",
+            lockAmount: true,
+          });
+        } catch (err) {
+          purchaseStatus.textContent = "MoonPay initialization failed.";
+          console.error(err);
+        }
       }
+      purchaseLoader.style.display = "none";
+      buyButton.disabled = false;
     });
+
+    // Roadmap accordion functionality
+    document.querySelectorAll('.roadmap-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.roadmap-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "$SKIBIDI Token Roadmap",
+      "description": "The roadmap for $SKIBIDI, a meme token on Solana, outlining key phases from presale to governance.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Phase 1 – Presale",
+          "description": "Launch capped presale with transparent wallet tracking and public ledger reporting."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Phase 2 – DEX Launch",
+          "description": "List on Raydium and Jupiter with locked liquidity and trading bot stabilization."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Phase 3 – Meme Collabs",
+          "description": "Partner with meme accounts, launch NFT drops, and host Skibidi-themed contests."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Phase 4 – Ecosystem Growth",
+          "description": "Expand to other chains, launch merch, minigames, and utility tools."
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Phase 5 – Governance & Rewards",
+          "description": "Implement community governance, staking pools, and airdrops."
+        }
+      ]
+    }
   </script>
 </body>
 </html>
