@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>$SKIBIDI Presale • Solana Meme Revolution</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family:Rubik,sans-serif; background:#121212; color:#eee; }
-    header { background:#ff0080; padding:60px 20px; text-align:center; }
-    header h1 { font-size:3rem; margin-bottom:10px; }
-    header p { max-width:600px; margin:auto; font-size:1.1rem; color:#fff; }
-    nav { display:flex; justify-content:center; gap:20px; margin-top:20px; }
-    nav a { color:#fff; text-decoration:none; font-weight:bold; }
-    section { padding:40px 20px; max-width:800px; margin:auto; }
-    .card { background:#1f1f1f; padding:30px; margin-bottom:30px; border-radius:12px; }
-    .card h2 { color:#ff4081; margin-bottom:15px; font-size:2rem; }
-    .card p { line-height:1.6; }
-    .countdown, .tracker { text-align:center; margin-top:30px; }
-    .progress-bar { width:100%; height:20px; background:#333; border-radius:10px; overflow:hidden; }
-    .progress-fill { height:100%; background:#ff4081; width:0; transition:width 1s linear; }
-    button { background:#ff4081; border:none; padding:12px 24px; color:#fff; font-weight:bold; border-radius:6px; cursor:pointer; }
-    button:disabled { background:#555; cursor:default; }
-    footer { text-align:center; padding:30px; background:#111; font-size:0.9rem; }
+    :root {
+      --primary: #ff4081;
+      --bg: #121212;
+      --card-bg: #1f1f1f;
+      --text: #eee;
+    }
+    body, html { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:Rubik,sans-serif;}
+    header { background:var(--primary); color:white; padding:60px 20px; text-align:center;}
+    header h1 { font-size:2.8rem; margin-bottom:10px;}
+    header p { font-size:1.1rem; max-width:700px; margin:auto;}
+    nav { margin-top:20px;}
+    nav a { color:white; margin: 0 12px; text-decoration:none; font-weight:600; }
+    section { max-width:800px; margin:40px auto; padding:0 20px;}
+    .card { background:var(--card-bg); padding:30px; margin:30px 0; border-radius:12px; }
+    .card h2 { color:var(--primary); margin-bottom:15px; }
+    ul { padding-left:20px; }
+    ul li { margin:12px 0; line-height:1.5; }
+    .countdown, .tracker { text-align:center; margin:30px 0; }
+    .progress-bar { width:100%; height:22px; background:#333; border-radius:12px; overflow:hidden; }
+    .progress-fill { height:100%; background:var(--primary); width:0; transition:width 0.5s ease-out;}
+    button { background:var(--primary); border:none; padding:12px 24px; color:white; border-radius:6px; cursor:pointer; font-weight:600; }
+    button:disabled { background:#555; cursor:not-allowed; }
+    footer { background:#0a0a0a; color:#777; text-align:center; padding:20px; font-size:0.9rem; }
+    code { background:#000; padding:4px 6px; border-radius:4px; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>$SKIBIDI Presale Live!</h1>
-    <p>Skibidi is not just a meme — it's a movement. Fast, fun, and community-first, built on Solana.</p>
+    <h1>$SKIBIDI Presale — LIVE</h1>
+    <p>The loudest, fastest, and freest meme coin on Solana. Built for entertainment, community, and unapologetic chaos.</p>
     <nav>
       <a href="#presale">Presale</a>
       <a href="#roadmap">Roadmap</a>
@@ -37,107 +44,107 @@
   </header>
 
   <section id="presale" class="card">
-    <h2>🔥 Presale Details</h2>
-    <p><strong>Rate:</strong> 1 SOL = 19,996,000 SKIBIDI</p>
-    <p><strong>Cap:</strong> 50 SOL total</p>
+    <h2>🔥 Presale Overview</h2>
+    <p><strong>Presale Rate:</strong> 1 SOL = 19 996 000 SKIBIDI</p>
+    <p><strong>Hard Cap:</strong> 50 SOL</p>
     <p><strong>Wallet:</strong> <code>GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2Kma</code></p>
 
     <div class="countdown">
-      <h3>🕒 Presale Ends In:</h3>
-      <div id="countdown-timer" style="font-size:2rem;"></div>
+      <h3>🕒 Countdown to End</h3><div id="countdown-timer" style="font-size:2rem;"></div>
     </div>
 
     <div class="tracker">
-      <h3>📈 Presale Progress</h3>
+      <h3>📈 Funds Raised (Real-Time)</h3>
       <div class="progress-bar"><div id="progress-bar-fill" class="progress-fill"></div></div>
-      <p><span id="amount-raised">0.00</span> / 50 SOL</p>
+      <p><span id="amount-raised">0.00</span> / 50 SOL</p>
     </div>
   </section>
 
   <section id="roadmap" class="card">
     <h2>🛣️ Roadmap & Purpose</h2>
-    <p>$SKIBIDI is the loudest meme on Solana — a zero-tax, lightning-fast community project built purely for fun and chaos. Think of it as your ticket to meme history.</p>
+    <p>$SKIBIDI is designed to be more than a meme — it's an irreverent community vehicle. We’re here to break the norms, reward the bold, and have fun doxxed—it’s a community-first rebellion.</p>
     <ul>
-      <li><strong>Phase 1 (Presale):</strong> Community funding & airdrops.</li>
-      <li><strong>Phase 2 (Launch):</strong> Listing on DEX + LP locked.</li>
-      <li><strong>Phase 3 (Growth):</strong> Community events, NFTs, meme contests.</li>
-      <li><strong>Phase 4 (Domination):</strong> Social integrations + influencer collabs.</li>
+      <li><strong>Phase 1 – Presale</strong>: Community-first, capped, claimable post-sale.</li>
+      <li><strong>Phase 2 – DEX Launch</strong>: Deep liquidity & LP locked for trust.</li>
+      <li><strong>Phase 3 – Meme Collabs</strong>: Partnerships, NFT drops, meme contests.</li>
+      <li><strong>Phase 4 – Ecosystem Growth</strong>: Multi-chain reach, real-world promotions, merchandise.</li>
+      <li><strong>Phase 5 – Governance & Rewards</strong>: Enable holders to vote on future airdrops and community funds.</li>
     </ul>
   </section>
 
   <section id="claim" class="card">
     <h2>🎁 Claim Your SKIBIDI</h2>
-    <p>If you participated in the presale, connect your wallet below to check eligibility and claim your tokens once distribution opens.</p>
+    <p>Participated in presale? Connect your wallet below to verify your eligibility. Claim options go live after sale ends.</p>
     <button id="connect-btn">Connect Wallet</button>
-    <div id="wallet-status"></div>
-    <p id="wallet-address"></p>
-    <button id="claim-btn" disabled>Claim SKIBIDI Airdrop</button>
+    <p id="wallet-status"></p><p id="wallet-address"></p>
+    <button id="claim-btn" disabled>Claim Airdrop</button>
   </section>
 
-  <footer>
-    © 2025 $SKIBIDI &mdash; Built on Solana. Not financial advice. DYOR.
-  </footer>
+  <footer>© 2025 $SKIBIDI • Built on Solana • Not financial advice • DYOR</footer>
 
   <script>
-    // Countdown & Tracker
     const END = new Date("2025-07-18T18:00:00Z").getTime();
     const START = END - (7 * 24 * 60 * 60 * 1000);
-    const totalCap = 50;
+    const CAP = 50;
     const timerEl = document.getElementById("countdown-timer");
     const fillEl = document.getElementById("progress-bar-fill");
     const raisedEl = document.getElementById("amount-raised");
+    const connectBtn = document.getElementById("connect-btn");
+    const claimBtn = document.getElementById("claim-btn");
+    const statusEl = document.getElementById("wallet-status");
+    const addressEl = document.getElementById("wallet-address");
+    const walletAddress = new solanaWeb3.PublicKey("GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2Kma");
+    const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl("mainnet-beta"));
+    const CLAIM_URL = "https://yourdomain.com/snapshot.json";
 
-    function update() {
+    async function update() {
       const now = Date.now();
-      const t = END - now;
-      if (t < 0) {
-        timerEl.textContent = "Ended!";
-        fillEl.style.width = "100%";
-        raisedEl.textContent = totalCap.toFixed(2);
-        return;
+      const diff = END - now;
+      if (diff <= 0) {
+        timerEl.textContent = "Presale Ended";
+      } else {
+        const d = Math.floor(diff / 86400000), h = Math.floor((diff % 86400000)/3600000);
+        const m = Math.floor((diff % 3600000)/60000), s = Math.floor((diff % 60000)/1000);
+        timerEl.textContent = `${d}d ${h}h ${m}m ${s}s`;
       }
-      const dd = Math.floor(t / 86400000), hh = Math.floor((t % 86400000)/3600000);
-      const mm = Math.floor((t % 3600000)/60000), ss = Math.floor((t % 60000)/1000);
-      timerEl.textContent = `${dd}d ${hh}h ${mm}m ${ss}s`;
-
-      const elapsed = now - START;
-      const pct = Math.min(elapsed / (END - START), 1);
-      fillEl.style.width = `${pct * 100}%`;
-      raisedEl.textContent = (totalCap * pct).toFixed(2);
+      try {
+        const bal = await connection.getBalance(walletAddress) / solanaWeb3.LAMPORTS_PER_SOL;
+        const pct = Math.min(bal / CAP, 1);
+        raisedEl.textContent = bal.toFixed(2);
+        fillEl.style.width = `${pct * 100}%`;
+      } catch (e) {
+        console.error(e);
+      }
       requestAnimationFrame(update);
     }
     update();
-
-    // Snapshot Claim System
-    const CLAIM_URL = "https://your-site.com/snapshot.json"; // upload this
-    const connectBtn = document.getElementById("connect-btn");
-    const claimBtn = document.getElementById("claim-btn");
-    const status = document.getElementById("wallet-status");
-    const addr = document.getElementById("wallet-address");
-
-    let userAmt = 0;
 
     connectBtn.onclick = async () => {
       try {
         const resp = await window.solana.connect();
         const pub = resp.publicKey.toBase58();
-        addr.textContent = pub; status.textContent = "Connected ✅";
-
+        addressEl.textContent = pub;
+        statusEl.textContent = "Wallet connected ✅";
         const snap = await (await fetch(CLAIM_URL)).json();
-        userAmt = snap[pub] || 0;
-        if (userAmt>0) {
+        const amt = snap[pub] || 0;
+        if (amt > 0) {
           claimBtn.disabled = false;
-          claimBtn.textContent = `Claim ${userAmt.toLocaleString()} SKIBIDI`;
+          claimBtn.textContent = `Claim ${amt.toLocaleString()} SKIBIDI`;
         } else {
           claimBtn.disabled = true;
           claimBtn.textContent = "Not eligible";
         }
-      } catch(e){ status.textContent="Connect failed";}
+      } catch {
+        statusEl.textContent = "Connection failed ❌";
+      }
     };
 
     claimBtn.onclick = () => {
-      alert("Claim request noted! Tokens will be airdropped after presale ends.");
+      alert("Your claim will be processed shortly — tokens airdropped after presale.");
     };
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+
 </body>
 </html>
+
