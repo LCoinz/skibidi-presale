@@ -1,175 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="$BABYPEPE is the next meme coin revolution on Solana!" />
-  <meta property="og:title" content="$BABYPEPE - The Next Meme King" />
-  <meta property="og:description" content="Join the $BABYPEPE presale today and ride the frog to the moon!" />
-  <meta property="og:image" content="https://littlepepe.com/images/meta-banner.jpg" />
-  <meta property="og:url" content="https://babypepe.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>$BABYPEPE - Official Presale</title>
-  <link rel="icon" href="https://littlepepe.com/images/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root {
-      --bg-dark: #0f0f0f;
-      --accent-green: #00ff00;
-      --text-white: #ffffff;
-      --text-secondary: #cccccc;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Rubik', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-white);
-      line-height: 1.5;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      background-color: #121212;
-      padding: 15px;
-      text-align: center;
-      z-index: 999;
-    }
-    header nav a {
-      color: var(--accent-green);
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    .hero {
-      height: 400px;
-      background: url('https://littlepepe.com/images/hero.jpg') center center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      z-index: 1;
-      color: var(--accent-green);
-    }
-    section {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 25px;
-      background-color: #1a1a1a;
-      border-radius: 8px;
-      animation: fadeIn 0.8s ease-in;
-    }
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-    section p {
-      font-size: 1rem;
-      color: var(--text-secondary);
-    }
-    .btn {
-      background-color: var(--accent-green);
-      color: var(--bg-dark);
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      margin-top: 20px;
-    }
-    .btn:hover {
-      transform: scale(1.05);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      section {
-        padding: 15px;
-      }
-    }
-    @media (max-width: 480px) {
-      header nav a {
-        display: block;
-        margin: 5px 0;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#buy">Buy</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#community">Community</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The cutest and most legendary meme coin is here - BabyPepe. Join the revolution today!" />
+    <title>BabyPepe</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      <img src="/logo.png" alt="BabyPepe logo" class="logo" />
 
-  <div class="hero" id="home">
-    <h1>Ride the $BABYPEPE wave to the moon!</h1>
-  </div>
+      <div class="heading">
+        <h1>$BABYPEPE</h1>
+        <h2>The Legendary Baby Meme Coin</h2>
+      </div>
 
-  <section>
-    <h2>What is $BABYPEPE?</h2>
-    <p>$BABYPEPE is the next iconic meme coin on Solana, combining the viral power of Pepe with explosive tokenomics. Join the movement before it explodes!</p>
-    <button class="btn" onclick="document.getElementById('buy').scrollIntoView({behavior: 'smooth'})">Join Presale</button>
-  </section>
+      <div class="links">
+        <a href="https://t.me/BabyPepePortal" target="_blank" class="button">Telegram</a>
+        <a href="https://x.com/BabyPepe_Token" target="_blank" class="button">Twitter</a>
+        <a href="https://pump.fun/" target="_blank" class="button">Buy Now</a>
+      </div>
 
-  <section id="buy">
-    <h2>Presale Info</h2>
-    <p>Token: $BABYPEPE</p>
-    <p>Price: $0.0015/BABYPEPE</p>
-    <p>No KYC under $150</p>
-    <p>Accepted: SOL, USDT</p>
-    <p>Presale Wallet: <a href="https://solscan.io/address/REPLACE_WITH_PRESALE_WALLET" target="_blank" style="color: var(--accent-green)">View on Solana Explorer</a></p>
-    <button class="btn">Connect Wallet</button>
-  </section>
+      <div class="info">
+        <p>Welcome to the cutest meme revolution in crypto. Inspired by the iconic frog, BabyPepe is here to conquer timelines and moon charts. No taxes. No rug pulls. Just pure meme magic on Solana.</p>
+        <p>Whether you're early or fashionably late, BabyPepe welcomes you. LFG.</p>
+      </div>
 
-  <section id="roadmap">
-    <h2>Roadmap</h2>
-    <p><strong>Phase 1:</strong> Launch presale, whitepaper, AMAs</p>
-    <p><strong>Phase 2:</strong> DEX listing, meme contest, $1M volume</p>
-    <p><strong>Phase 3:</strong> Meme collabs, NFT drop, weekly contests</p>
-    <p><strong>Phase 4:</strong> ETH bridge, merch, minigame, billboards</p>
-    <p><strong>Phase 5:</strong> DAO, staking, CEX listing</p>
-  </section>
+      <div class="tokenomics">
+        <h3>Tokenomics</h3>
+        <ul>
+          <li>Total Supply: 1,000,000,000</li>
+          <li>0% Buy/Sell Tax</li>
+          <li>100% Community-Owned</li>
+        </ul>
+      </div>
 
-  <section id="community">
-    <h2>Join the Community</h2>
-    <p>Telegram: <a href="https://t.me/skibiditoken" style="color: var(--accent-green)">@babypepetoken</a></p>
-    <p>Twitter: <a href="https://x.com/skibiditoken" style="color: var(--accent-green)">@babypepetoken</a></p>
-    <p>10K+ holders and counting. Be a part of the next big thing!</p>
-  </section>
-
-  <footer>
-    <p>© 2025 $BABYPEPE. All rights reserved.</p>
-    <p><a href="whitepaper.pdf" style="color: var(--accent-green)">Download Whitepaper</a> | <a href="terms.html" style="color: var(--accent-green)">Terms</a> | <a href="privacy.html" style="color: var(--accent-green)">Privacy</a></p>
-  </footer>
-</body>
+      <footer>
+        <p>Made with 💚 by BabyPepe Community | 2025</p>
+      </footer>
+    </main>
+  </body>
 </html>
-
