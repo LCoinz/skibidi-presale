@@ -256,7 +256,7 @@
             <button class="btn" id="buyButton" onclick="buyTokens()" disabled aria-label="Buy $BABYPEPE tokens">Buy $BABYPEPE Now</button>
             <p>Pay with SOL or USDT via Phantom/Solflare wallets.</p>
             <p><img src="ssl-badge.jpg" alt="SSL Secure" class="badge"> <img src="locked-liquidity.jpg" alt="Liquidity Locked" class="badge"></p>
-            <p>Presale Wallet: <a href="https://explorer.solana.com/address/PRESALE_WALLET" target="_blank" rel="noopener">View on Solana Explorer</a></p>
+            <p>Presale Wallet: <a href="https://explorer.solana.com/address/GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2K" target="_blank" rel="noopener">View on Solana Explorer</a></p>
             <p>Audited by <a href="https://certik.com" target="_blank" rel="noopener">CertiK</a></p>
         </section>
         <section id="claim" aria-label="Token claim section">
@@ -289,7 +289,7 @@
                 </div>
                 <div class="roadmap-item">
                     <h3>Phase 3: Meme Collaborations (Q1 2026)</h3>
-                    <p>Partner with @PepeArmy, @MemeKings for 500K impressions. Launch 1,000 Pepe-themed NFTs (10% royalties). Host weekly X Spaces (2,000 attendees). Run $5, Elig000 weekly meme contests. Reach 100K X/50K Telegram followers, 10K holders, NFT sellout.</p>
+                    <p>Partner with @PepeArmy, @MemeKings for 500K impressions. Launch 1,000 Pepe-themed NFTs (10% royalties). Host weekly X Spaces (2,000 attendees). Run $5,000 weekly meme contests. Reach 100K X/50K Telegram followers, 10K holders, NFT sellout.</p>
                 </div>
                 <div class="roadmap-item">
                     <h3>Phase 4: Ecosystem Expansion (Q2 2026)</h3>
@@ -303,7 +303,6 @@
         </section>
         <section id="community" aria-label="Community section">
             <h2>Join Our Community</h2>
-            <p>10K+ Telegram members | 15K+ X followers</p>
             <p>Stay updated with AMAs, meme contests, and influencer collabs (@PepeArmy incoming!)</p>
             <div class="social-links">
                 <a href="https://x.com/babypepetoken" target="_blank" rel="noopener" onclick="gtag('event', 'social_click', {'event_category': 'Social', 'event_label': 'X'})"><i class="fab fa-twitter"></i></a>
@@ -317,6 +316,116 @@
     <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.95.3/dist/index.iife.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@solana/spl-token@0.4.8/dist/index.iife.min.js"></script>
     <script>
-        const PRESALE_WALLET = 'PRESALE_WALLET';
+        const PRESALE_WALLET = 'GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2K';
         const SKIBIDI_MINT = 'SKIBIDI_MINT';
-        const USDT_MINT = 'Es9
+        const USDT_MINT = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB';
+        let wallet = null;
+
+        async function connectWallet() {
+            try {
+                if (window.solana && (window.solana.isPhantom || window.solana.isSolflare)) {
+                    await window.solana.connect();
+                    wallet = window.solana;
+                    document.getElementById('connectWallet').textContent = `Connected: ${wallet.publicKey.toString().slice(0, 4)}...`;
+                    document.getElementById('buyButton').disabled = false;
+                    confetti({ particleCount: 100, spread: 70 });
+                    gtag('event', 'wallet_connect', { 'event_category': 'Wallet', 'event_label': 'Connect Success' });
+                } else {
+                    alert('Please install Phantom or Solflare wallet.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Failed to connect wallet. Please try again.');
+                gtag('event', 'wallet_connect_error', { 'event_category': 'Wallet', 'event_label': 'Connect Error' });
+            }
+        }
+
+        async function buyTokens() {
+            if (!wallet) {
+                alert('Please connect your wallet first.');
+                return;
+            }
+            try {
+                const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
+                const recipient = new solanaWeb3.PublicKey(PRESALE_WALLET);
+                const amount = new solanaWeb3.LAMPORTS_PER_SOL * 0.1; // Example: 0.1 SOL
+                const transaction = new solanaWeb3.Transaction().add(
+                    solanaWeb3.SystemProgram.transfer({
+                        fromPubkey: wallet.publicKey,
+                        toPubkey: recipient,
+                        lamports: amount
+                    })
+                );
+                const { blockhash } = await connection.getLatestBlockhash();
+                transaction.recentBlockhash = blockhash;
+                transaction.feePayer = wallet.publicKey;
+                const signed = await wallet.signTransaction(transaction);
+                const txid = await connection.sendRawTransaction(signed.serialize());
+                await connection.confirmTransaction(txid);
+                alert('Purchase successful! Transaction ID: ' + txid);
+                confetti({ particleCount: 200, spread: 100 });
+                gtag('event', 'purchase', { 'event_category': 'Presale', 'event_label': 'Buy Success' });
+                updateRaisedAmount(amount / solanaWeb3.LAMPORTS_PER_SOL * 150); // Assuming 1 SOL = $150
+            } catch (err) {
+                console.error(err);
+                alert('Purchase failed. Please try again.');
+                gtag('event', 'purchase_error', { 'event_category': 'Presale', 'event_label': 'Buy Error' });
+            }
+        }
+
+        async function checkEligibility() {
+            try {
+                const response = await fetch('snapshot.json');
+                const snapshot = await response.json();
+                if (wallet && snapshot.includes(wallet.publicKey.toString())) {
+                    alert('Your wallet is eligible to claim $BABYPEPE tokens!');
+                } else {
+                    alert('Your wallet is not eligible for this snapshot.');
+                }
+                gtag('event', 'check_eligibility', { 'event_category': 'Claim', 'event_label': 'Eligibility Check' });
+            } catch (err) {
+                console.error(err);
+                alert('Error checking eligibility. Please try again.');
+            }
+        }
+
+        async function updateRaisedAmount(purchaseAmount = 0) {
+            try {
+                const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
+                const presaleWallet = new solanaWeb3.PublicKey(PRESALE_WALLET);
+                const balance = await connection.getBalance(presaleWallet);
+                const raised = (balance / solanaWeb3.LAMPORTS_PER_SOL * 150) + purchaseAmount; // Assuming 1 SOL = $150
+                const totalGoal = 1000000;
+                const percentage = Math.min((raised / totalGoal) * 100, 100);
+                document.getElementById('raisedAmount').textContent = `$${raised.toLocaleString()}`;
+                document.getElementById('progressBar').style.width = `${percentage}%`;
+            } catch (err) {
+                console.error('Error fetching raised amount:', err);
+            }
+        }
+
+        function startCountdown() {
+            const endDate = new Date('2025-09-30T23:59:59Z').getTime();
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById('timer').textContent = 'Ended';
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById('timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+
+        window.onload = () => {
+            startCountdown();
+            updateRaisedAmount();
+        };
+    </script>
+</body>
+</html>
