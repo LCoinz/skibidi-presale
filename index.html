@@ -1,431 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="$BABYPEPE Token Presale - Join the hottest memecoin on Solana with a $100,000 airdrop and exclusive bonuses!">
-    <meta name="keywords" content="BABYPEPE, memecoin, Solana, presale, crypto, Pepe">
-    <meta name="author" content="BABYPEPE Team">
-    <meta property="og:title" content="$BABYPEPE Token Presale">
-    <meta property="og:description" content="Ride the $BABYPEPE wave to the moon! Join the Solana-based memecoin presale with exclusive bonuses and a $100,000 airdrop.">
-    <meta property="og:image" content="https://babypepe.com/pepe-hero.jpg">
-    <meta property="og:url" content="https://babypepe.com">
-    <meta property="og:type" content="website">
-    <title>$BABYPEPE Token Presale</title>
-    <link rel="icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYZ123ABC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XYZ123ABC');
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "$BABYPEPE Token Presale",
-        "url": "https://babypepe.com",
-        "description": "Join the $BABYPEPE memecoin presale on Solana with exclusive bonuses and a $100,000 airdrop.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://babypepe.com/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="$BABYPEPE is the next meme coin revolution on Solana!" />
+  <meta property="og:title" content="$BABYPEPE - The Next Meme King" />
+  <meta property="og:description" content="Join the $BABYPEPE presale today and ride the frog to the moon!" />
+  <meta property="og:image" content="https://littlepepe.com/images/meta-banner.jpg" />
+  <meta property="og:url" content="https://babypepe.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>$BABYPEPE - Official Presale</title>
+  <link rel="icon" href="https://littlepepe.com/images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --accent-green: #00ff00;
+      --text-white: #ffffff;
+      --text-secondary: #cccccc;
     }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Rubik', sans-serif;
-        }
-        body {
-            background: #0f0f0f;
-            color: #ffffff;
-            line-height: 1.5;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            position: sticky;
-            top: 0;
-            background: #0f0f0f;
-            padding: 15px 0;
-            z-index: 1000;
-            border-bottom: 1px solid #2a2a2a;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        nav a {
-            color: #cccccc;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 400;
-        }
-        nav a:hover, nav a:focus {
-            color: #00ff00;
-        }
-        section {
-            margin: 20px 0;
-            padding: 25px;
-            background: #1a1a1a;
-            border-radius: 8px;
-            animation: fadeIn 0.8s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 1rem;
-            color: #cccccc;
-            margin-bottom: 15px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #00ff00;
-            color: #0f0f0f;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-        .btn:hover, .btn:focus {
-            transform: scale(1.1);
-        }
-        .hero {
-            height: 400px;
-            background: url('pepe-hero.jpg') center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        .progress-bar {
-            height: 8px;
-            background: #2a2a2a;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-        .progress {
-            height: 100%;
-            background: #00ff00;
-            animation: progressAnimation 1s ease-in-out;
-        }
-        @keyframes progressAnimation {
-            from { width: 0; }
-            to { width: attr(data-progress); }
-        }
-        .roadmap-timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-        .roadmap-timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #00ff00;
-        }
-        .roadmap-item {
-            position: relative;
-            margin: 20px 0;
-            padding-left: 40px;
-        }
-        .roadmap-item::before {
-            content: '';
-            position: absolute;
-            left: 16px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: #00ff00;
-            border-radius: 50%;
-        }
-        .social-links a {
-            color: #00ff00;
-            margin-right: 15px;
-            font-size: 1.5rem;
-        }
-        .cookie-consent {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 8px;
-            z-index: 1000;
-            max-width: 300px;
-        }
-        .badge {
-            display: inline-block;
-            margin: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #1a1a1a;
-            border-top: 1px solid #2a2a2a;
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.5rem; }
-            .hero { height: 300px; }
-            nav { flex-direction: column; gap: 10px; }
-            section { padding: 15px; }
-        }
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.2rem; }
-            p { font-size: 0.9rem; }
-            .btn { padding: 10px 20px; }
-            .hero { height: 250px; }
-        }
-    </style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.5;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #121212;
+      padding: 15px;
+      text-align: center;
+      z-index: 999;
+    }
+    header nav a {
+      color: var(--accent-green);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .hero {
+      height: 400px;
+      background: url('https://littlepepe.com/images/hero.jpg') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      z-index: 1;
+      color: var(--accent-green);
+    }
+    section {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 25px;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      animation: fadeIn 0.8s ease-in;
+    }
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    section p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+    .btn {
+      background-color: var(--accent-green);
+      color: var(--bg-dark);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 15px;
+      }
+    }
+    @media (max-width: 480px) {
+      header nav a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="cookie-consent" role="alert" aria-live="polite">
-        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
-        <button class="btn" onclick="document.querySelector('.cookie-consent').style.display='none'">Accept</button>
-    </div>
-    <header>
-        <nav role="navigation" aria-label="Main navigation">
-            <a href="#home" onclick="gtag('event', 'nav_click', {'event_category': 'Navigation', 'event_label': 'Home'})">Home</a>
-            <a href="#buy" onclick="gtag('event', 'nav_click', {'event_category': 'Navigation', 'event_label': 'Buy'})">Buy</a>
-            <a href="#roadmap" onclick="gtag('event', 'nav_click', {'event_category': 'Navigation', 'event_label': 'Roadmap'})">Roadmap</a>
-            <a href="#community" onclick="gtag('event', 'nav_click', {'event_category': 'Navigation', 'event_label': 'Community'})">Community</a>
-        </nav>
-    </header>
-    <section id="home" class="hero" aria-label="Hero section">
-        <div class="hero-content">
-            <h1>Ride the $BABYPEPE Wave to the Moon!</h1>
-            <p>Join the hottest Solana memecoin presale with a $100,000 airdrop!</p>
-            <a href="#buy" class="btn" onclick="gtag('event', 'cta_click', {'event_category': 'CTA', 'event_label': 'Buy Now Hero'})">Buy $BABYPEPE Now</a>
-        </div>
-    </section>
-    <div class="container">
-        <section id="buy" aria-label="Presale section">
-            <h2>Join the $BABYPEPE Presale</h2>
-            <p>Price: $0.0015/BABYPEPE | No KYC for purchases under $150</p>
-            <p>Raised: <span id="raisedAmount">$0</span> / $1,000,000</p>
-            <div class="progress-bar">
-                <div class="progress" id="progressBar" style="width: 0%"></div>
-            </div>
-            <p id="countdown">Presale ends in: <span id="timer"></span></p>
-            <p>10% bonus tokens for the first 1,000 buyers! 5% referral bonus available.</p>
-            <button class="btn" id="connectWallet" onclick="connectWallet()" aria-label="Connect Solana wallet">Connect Wallet</button>
-            <button class="btn" id="buyButton" onclick="buyTokens()" disabled aria-label="Buy $BABYPEPE tokens">Buy $BABYPEPE Now</button>
-            <p>Pay with SOL or USDT via Phantom/Solflare wallets.</p>
-            <p><img src="ssl-badge.jpg" alt="SSL Secure" class="badge"> <img src="locked-liquidity.jpg" alt="Liquidity Locked" class="badge"></p>
-            <p>Presale Wallet: <a href="https://explorer.solana.com/address/GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2K" target="_blank" rel="noopener">View on Solana Explorer</a></p>
-            <p>Audited by <a href="https://certik.com" target="_blank" rel="noopener">CertiK</a></p>
-        </section>
-        <section id="claim" aria-label="Token claim section">
-            <h2>Claim Your $BABYPEPE Tokens</h2>
-            <p>Check if your wallet is eligible for the presale snapshot.</p>
-            <button class="btn" onclick="checkEligibility()" aria-label="Check token eligibility">Check Eligibility</button>
-        </section>
-        <section id="giveaway" aria-label="Giveaway section">
-            <h2>$100,000 Airdrop!</h2>
-            <p>Join our $100,000 airdrop! 10 winners get 10,000 $BABYPEPE each. Follow us on X and Telegram, hold $BABYPEPE, and enter now!</p>
-            <a href="https://x.com/babypepetoken" class="btn" target="_blank" rel="noopener" onclick="gtag('event', 'social_click', {'event_category': 'Social', 'event_label': 'X Giveaway'})">Join on X</a>
-            <a href="https://t.me/babypepetoken" class="btn" target="_blank" rel="noopener" onclick="gtag('event', 'social_click', {'event_category': 'Social', 'event_label': 'Telegram Giveaway'})">Join on Telegram</a>
-        </section>
-        <section id="tokenomics" aria-label="Tokenomics section">
-            <h2>Tokenomics</h2>
-            <p>Total Supply: 1,000,000,000 $BABYPEPE</p>
-            <p>Presale: 26.5% (265M) | Liquidity: 20% (200M, locked 12 months) | Staking: 13.5% (135M) | Airdrops: 5% (50M)</p>
-            <p>Testimonial: "@CryptoPepe: '$BABYPEPE is the next big meme!'"</p>
-        </section>
-        <section id="roadmap" aria-label="Roadmap section">
-            <h2>Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item">
-                    <h3>Phase 1: Presale Launch (Q3 2025)</h3>
-                    <p>Launch presale with 265M $BABYPEPE (26.5%) at $0.0015/token. Deploy audited Solana contracts. Offer 10% bonus for first 1,000 buyers. Host weekly AMAs (5,000 attendees). Publish <a href="whitepaper.pdf" target="_blank" rel="noopener">whitepaper</a>. Raise $250,000, gain 10K Telegram/15K X followers.</p>
-                </div>
-                <div class="roadmap-item">
-                    <h3>Phase 2: DEX Listing (Q4 2025)</h3>
-                    <p>List on Raydium with 200M $BABYPEPE (20%) for liquidity, locked for 12 months. Use $100,000 anti-dump bots. Secure CoinGecko/CoinMarketCap listings. Run $10,000 meme contest. Achieve $1M trading volume, 50K X/20K Telegram followers, 5,000 holders.</p>
-                </div>
-                <div class="roadmap-item">
-                    <h3>Phase 3: Meme Collaborations (Q1 2026)</h3>
-                    <p>Partner with @PepeArmy, @MemeKings for 500K impressions. Launch 1,000 Pepe-themed NFTs (10% royalties). Host weekly X Spaces (2,000 attendees). Run $5,000 weekly meme contests. Reach 100K X/50K Telegram followers, 10K holders, NFT sellout.</p>
-                </div>
-                <div class="roadmap-item">
-                    <h3>Phase 4: Ecosystem Expansion (Q2 2026)</h3>
-                    <p>Launch Ethereum bridge for Uniswap. Release merch (500 hoodies, 1,000 hats). Develop “BABYPEPE Dash” minigame (10K players). Secure billboard ads (New York, Dubai). Bridge 50M $BABYPEPE, sell 80% merch, 20K holders.</p>
-                </div>
-                <div class="roadmap-item">
-                    <h3>Phase 5: Governance (Q3 2026)</h3>
-                    <p>Launch Snapshot.org governance for $500,000 treasury. Introduce 5% APY staking (135M $BABYPEPE). Distribute 50,000 $BABYPEPE airdrops. Secure CEX listing (e.g., Binance). Achieve 1,000 proposals/10K votes, 100M staked, 50K holders.</p>
-                </div>
-            </div>
-        </section>
-        <section id="community" aria-label="Community section">
-            <h2>Join Our Community</h2>
-            <p>Stay updated with AMAs, meme contests, and influencer collabs (@PepeArmy incoming!)</p>
-            <div class="social-links">
-                <a href="https://x.com/babypepetoken" target="_blank" rel="noopener" onclick="gtag('event', 'social_click', {'event_category': 'Social', 'event_label': 'X'})"><i class="fab fa-twitter"></i></a>
-                <a href="https://t.me/babypepetoken" target="_blank" rel="noopener" onclick="gtag('event', 'social_click', {'event_category': 'Social', 'event_label': 'Telegram'})"><i class="fab fa-telegram"></i></a>
-            </div>
-        </section>
-    </div>
-    <footer aria-label="Footer">
-        <p>© 2025 $BABYPEPE. All rights reserved. <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a></p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.95.3/dist/index.iife.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@solana/spl-token@0.4.8/dist/index.iife.min.js"></script>
-    <script>
-        const PRESALE_WALLET = 'GtuT1ziSUE4coJ47rEWJ9cxqgLTijB47AAgKuD1W2K';
-        const SKIBIDI_MINT = 'SKIBIDI_MINT';
-        const USDT_MINT = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB';
-        let wallet = null;
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#buy">Buy</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#community">Community</a>
+    </nav>
+  </header>
 
-        async function connectWallet() {
-            try {
-                if (window.solana && (window.solana.isPhantom || window.solana.isSolflare)) {
-                    await window.solana.connect();
-                    wallet = window.solana;
-                    document.getElementById('connectWallet').textContent = `Connected: ${wallet.publicKey.toString().slice(0, 4)}...`;
-                    document.getElementById('buyButton').disabled = false;
-                    confetti({ particleCount: 100, spread: 70 });
-                    gtag('event', 'wallet_connect', { 'event_category': 'Wallet', 'event_label': 'Connect Success' });
-                } else {
-                    alert('Please install Phantom or Solflare wallet.');
-                }
-            } catch (err) {
-                console.error(err);
-                alert('Failed to connect wallet. Please try again.');
-                gtag('event', 'wallet_connect_error', { 'event_category': 'Wallet', 'event_label': 'Connect Error' });
-            }
-        }
+  <div class="hero" id="home">
+    <h1>Ride the $BABYPEPE wave to the moon!</h1>
+  </div>
 
-        async function buyTokens() {
-            if (!wallet) {
-                alert('Please connect your wallet first.');
-                return;
-            }
-            try {
-                const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
-                const recipient = new solanaWeb3.PublicKey(PRESALE_WALLET);
-                const amount = new solanaWeb3.LAMPORTS_PER_SOL * 0.1; // Example: 0.1 SOL
-                const transaction = new solanaWeb3.Transaction().add(
-                    solanaWeb3.SystemProgram.transfer({
-                        fromPubkey: wallet.publicKey,
-                        toPubkey: recipient,
-                        lamports: amount
-                    })
-                );
-                const { blockhash } = await connection.getLatestBlockhash();
-                transaction.recentBlockhash = blockhash;
-                transaction.feePayer = wallet.publicKey;
-                const signed = await wallet.signTransaction(transaction);
-                const txid = await connection.sendRawTransaction(signed.serialize());
-                await connection.confirmTransaction(txid);
-                alert('Purchase successful! Transaction ID: ' + txid);
-                confetti({ particleCount: 200, spread: 100 });
-                gtag('event', 'purchase', { 'event_category': 'Presale', 'event_label': 'Buy Success' });
-                updateRaisedAmount(amount / solanaWeb3.LAMPORTS_PER_SOL * 150); // Assuming 1 SOL = $150
-            } catch (err) {
-                console.error(err);
-                alert('Purchase failed. Please try again.');
-                gtag('event', 'purchase_error', { 'event_category': 'Presale', 'event_label': 'Buy Error' });
-            }
-        }
+  <section>
+    <h2>What is $BABYPEPE?</h2>
+    <p>$BABYPEPE is the next iconic meme coin on Solana, combining the viral power of Pepe with explosive tokenomics. Join the movement before it explodes!</p>
+    <button class="btn" onclick="document.getElementById('buy').scrollIntoView({behavior: 'smooth'})">Join Presale</button>
+  </section>
 
-        async function checkEligibility() {
-            try {
-                const response = await fetch('snapshot.json');
-                const snapshot = await response.json();
-                if (wallet && snapshot.includes(wallet.publicKey.toString())) {
-                    alert('Your wallet is eligible to claim $BABYPEPE tokens!');
-                } else {
-                    alert('Your wallet is not eligible for this snapshot.');
-                }
-                gtag('event', 'check_eligibility', { 'event_category': 'Claim', 'event_label': 'Eligibility Check' });
-            } catch (err) {
-                console.error(err);
-                alert('Error checking eligibility. Please try again.');
-            }
-        }
+  <section id="buy">
+    <h2>Presale Info</h2>
+    <p>Token: $BABYPEPE</p>
+    <p>Price: $0.0015/BABYPEPE</p>
+    <p>No KYC under $150</p>
+    <p>Accepted: SOL, USDT</p>
+    <p>Presale Wallet: <a href="https://solscan.io/address/REPLACE_WITH_PRESALE_WALLET" target="_blank" style="color: var(--accent-green)">View on Solana Explorer</a></p>
+    <button class="btn">Connect Wallet</button>
+  </section>
 
-        async function updateRaisedAmount(purchaseAmount = 0) {
-            try {
-                const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
-                const presaleWallet = new solanaWeb3.PublicKey(PRESALE_WALLET);
-                const balance = await connection.getBalance(presaleWallet);
-                const raised = (balance / solanaWeb3.LAMPORTS_PER_SOL * 150) + purchaseAmount; // Assuming 1 SOL = $150
-                const totalGoal = 1000000;
-                const percentage = Math.min((raised / totalGoal) * 100, 100);
-                document.getElementById('raisedAmount').textContent = `$${raised.toLocaleString()}`;
-                document.getElementById('progressBar').style.width = `${percentage}%`;
-            } catch (err) {
-                console.error('Error fetching raised amount:', err);
-            }
-        }
+  <section id="roadmap">
+    <h2>Roadmap</h2>
+    <p><strong>Phase 1:</strong> Launch presale, whitepaper, AMAs</p>
+    <p><strong>Phase 2:</strong> DEX listing, meme contest, $1M volume</p>
+    <p><strong>Phase 3:</strong> Meme collabs, NFT drop, weekly contests</p>
+    <p><strong>Phase 4:</strong> ETH bridge, merch, minigame, billboards</p>
+    <p><strong>Phase 5:</strong> DAO, staking, CEX listing</p>
+  </section>
 
-        function startCountdown() {
-            const endDate = new Date('2025-09-30T23:59:59Z').getTime();
-            const timer = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = endDate - now;
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.getElementById('timer').textContent = 'Ended';
-                    return;
-                }
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                document.getElementById('timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }, 1000);
-        }
+  <section id="community">
+    <h2>Join the Community</h2>
+    <p>Telegram: <a href="https://t.me/skibiditoken" style="color: var(--accent-green)">@babypepetoken</a></p>
+    <p>Twitter: <a href="https://x.com/skibiditoken" style="color: var(--accent-green)">@babypepetoken</a></p>
+    <p>10K+ holders and counting. Be a part of the next big thing!</p>
+  </section>
 
-        window.onload = () => {
-            startCountdown();
-            updateRaisedAmount();
-        };
-    </script>
+  <footer>
+    <p>© 2025 $BABYPEPE. All rights reserved.</p>
+    <p><a href="whitepaper.pdf" style="color: var(--accent-green)">Download Whitepaper</a> | <a href="terms.html" style="color: var(--accent-green)">Terms</a> | <a href="privacy.html" style="color: var(--accent-green)">Privacy</a></p>
+  </footer>
 </body>
 </html>
+
